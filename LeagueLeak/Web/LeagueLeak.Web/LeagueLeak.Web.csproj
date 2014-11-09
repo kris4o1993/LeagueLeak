@@ -256,6 +256,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\LeagueLeak.Common\LeagueLeak.Common.csproj">
+      <Project>{40e7b403-d019-4504-a575-4397f06798d0}</Project>
+      <Name>LeagueLeak.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\LeagueLeak.Data\LeagueLeak.Data.csproj">
       <Project>{f0ad3007-ef74-4a41-ac93-d31e682d5305}</Project>
       <Name>LeagueLeak.Data</Name>

@@ -53,9 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\LeagueLeak.Common\LeagueLeak.Common.csproj">
+      <Project>{40e7b403-d019-4504-a575-4397f06798d0}</Project>
+      <Name>LeagueLeak.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LeagueLeak.Models\LeagueLeak.Models.csproj">
       <Project>{88c397c3-4613-4cd9-b304-daabcd736a13}</Project>
       <Name>LeagueLeak.Models</Name>
