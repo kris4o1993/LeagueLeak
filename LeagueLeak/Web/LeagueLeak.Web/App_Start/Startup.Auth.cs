@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using LeagueLeak.Web.Models;
+using LeagueLeak.Models;
+using LeagueLeak.Data;
 
 namespace LeagueLeak.Web
 {

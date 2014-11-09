@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LeagueLeak.Web.Models;
+using LeagueLeak.Models;
 
 namespace LeagueLeak.Web.Controllers
 {

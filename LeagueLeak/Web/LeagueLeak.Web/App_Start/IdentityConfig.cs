@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using LeagueLeak.Web.Models;
+using LeagueLeak.Models;
+using LeagueLeak.Data;
 
 namespace LeagueLeak.Web
 {
