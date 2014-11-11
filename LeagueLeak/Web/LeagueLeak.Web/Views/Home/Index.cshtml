@@ -3,9 +3,16 @@
     ViewBag.Title = "Home Page";
 }
 
-<div>
+<div class="container">
     @foreach(var news in Model)
     {
-        <p>@news.Title</p>
+        <div class="jumbotron">
+            <div class="row">
+                <h2>@news.Title</h2>
+            </div>
+            <div class="row">
+                <p>Content here!</p>
+            </div>
+        </div>
     }
 </div>
