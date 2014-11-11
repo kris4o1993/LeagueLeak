@@ -21,9 +21,13 @@
             return new ApplicationDbContext();
         }
 
-        public IDbSet<Tag> Tags { get; set; }
-
         public IDbSet<News> News { get; set; }
+
+        public IDbSet<Player> Players { get; set; }
+
+        public IDbSet<Champion> Champions { get; set; }
+
+        public IDbSet<Spell> Spells { get; set; }
 
         public override int SaveChanges()
         {

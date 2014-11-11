@@ -15,12 +15,15 @@ namespace LeagueLeak.Models
         [MaxLength(100)]
         public string Title { get; set; }
 
-        public DateTime CreatedOn { get; set; }
+        public string Content { get; set; }
 
+        public DateTime DateCreated { get; set; }
 
 
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        // TODO: Add comments
     }
 }

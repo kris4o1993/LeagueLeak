@@ -8,6 +8,8 @@ namespace LeagueLeak.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.IgnoreList.Clear();
+
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                       "~/Scripts/kendo/kendo.all.min.js",
                       "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
@@ -33,11 +35,13 @@ namespace LeagueLeak.Web
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                      "~/Content/kendo/kendo.common.min.css",
                       "~/Content/kendo/kendo.bootstrap.min.css",
-                      "~/Content/kendo/kendo.moonlight.min.css"));
+                      "~/Content/kendo/kendo.common-bootstrap.min.css",
+                      "~/Content/kendo/kendo.uniform.min.css"));
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
