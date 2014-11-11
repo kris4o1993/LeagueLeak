@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueLeak.Web", "Web\Leagu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueLeak.Common", "Data\LeagueLeak.Common\LeagueLeak.Common.csproj", "{40E7B403-D019-4504-A575-4397F06798D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueLeak.Infrastructure", "Web\LeagueLeak.Infrastructure\LeagueLeak.Infrastructure.csproj", "{1859C947-F74A-43DF-B986-97A90123CE38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{40E7B403-D019-4504-A575-4397F06798D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40E7B403-D019-4504-A575-4397F06798D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40E7B403-D019-4504-A575-4397F06798D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1859C947-F74A-43DF-B986-97A90123CE38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1859C947-F74A-43DF-B986-97A90123CE38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1859C947-F74A-43DF-B986-97A90123CE38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1859C947-F74A-43DF-B986-97A90123CE38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +52,6 @@ Global
 		{88C397C3-4613-4CD9-B304-DAABCD736A13} = {FECC0506-6C87-419C-9602-0A6443D1EF30}
 		{D11A4146-F3AC-4B87-A578-A2A850F2120F} = {05EBA0B0-6285-4499-970A-60614D514DC6}
 		{40E7B403-D019-4504-A575-4397F06798D0} = {FECC0506-6C87-419C-9602-0A6443D1EF30}
+		{1859C947-F74A-43DF-B986-97A90123CE38} = {05EBA0B0-6285-4499-970A-60614D514DC6}
 	EndGlobalSection
 EndGlobal
