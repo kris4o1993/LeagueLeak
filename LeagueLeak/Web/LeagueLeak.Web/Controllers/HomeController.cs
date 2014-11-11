@@ -13,12 +13,6 @@ using System.Web.Mvc;
     {
         private IRepository<News> news;
 
-        public HomeController()
-            :this (new GenericRepository<News>(new ApplicationDbContext()))
-        {
-
-        }
-
         public HomeController(IRepository<News> news)
         {
             this.news = news;
