@@ -1,4 +1,4 @@
-﻿namespace LeagueLeak.Common.Models
+﻿namespace LeagueLeak.Data.Repositories
 {
     using System;
     using System.Linq;
@@ -7,17 +7,15 @@
     {
         IQueryable<T> All();
 
-        T GetById(int id);
+        T Find(object id);
 
         void Add(T entity);
 
         void Update(T entity);
 
-        void Delete(T entity);
+        T Delete(T entity);
 
-        void Delete(int id);
-
-        void Detach(T entity);
+        T Delete(object id);
 
         int SaveChanges();
     }

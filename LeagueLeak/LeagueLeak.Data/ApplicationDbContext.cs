@@ -23,6 +23,8 @@
 
         public IDbSet<Tag> Tags { get; set; }
 
+        public IDbSet<News> News { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

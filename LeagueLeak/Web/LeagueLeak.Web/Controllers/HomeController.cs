@@ -1,30 +1,33 @@
-﻿using System;
+﻿namespace LeagueLeak.Web.Controllers
+{
+    using LeagueLeak.Data;
+using LeagueLeak.Data.Repositories;
+using LeagueLeak.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace LeagueLeak.Web.Controllers
-{
     public class HomeController : Controller
     {
+        private IRepository<News> news;
+
+        public HomeController()
+            :this (new GenericRepository<News>(new ApplicationDbContext()))
+        {
+
+        }
+
+        public HomeController(IRepository<News> news)
+        {
+            this.news = news;
+        }
+
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var news = this.news.All();
+            return View(news);
         }
     }
 }
