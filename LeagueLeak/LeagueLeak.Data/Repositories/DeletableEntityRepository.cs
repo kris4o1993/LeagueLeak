@@ -25,5 +25,12 @@ namespace LeagueLeak.Data.Repositories
         {
             return base.All();
         }
+
+        public override void Delete(T entity)
+        {
+            entity.DeletedOn = DateTime.Now;
+            entity.IsDeleted = true;
+
+        }
     }
 }

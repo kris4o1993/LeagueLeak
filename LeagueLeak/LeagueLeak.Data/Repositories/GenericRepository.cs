@@ -11,23 +11,30 @@ namespace LeagueLeak.Data.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        private DbContext context;
-        private IDbSet<T> set;
 
         public GenericRepository(DbContext context)
         {
-            this.context = context;
-            this.set = context.Set<T>();
+            if (context == null)
+            {
+                throw new ArgumentException("An instance of DbContext is required to use this repository.", "context");
+            }
+
+            this.Context = context;
+            this.DbSet = this.Context.Set<T>();
         }
+
+        protected IDbSet<T> DbSet { get; set; }
+
+        protected DbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
-            return this.set;
+            return this.DbSet.AsQueryable();
         }
 
         public virtual T Find(object id)
         {
-            return this.set.Find(id);
+            return this.DbSet.Find(id);
         }
 
         public virtual void Add(T entity)
@@ -40,25 +47,27 @@ namespace LeagueLeak.Data.Repositories
             this.ChangeState(entity, EntityState.Modified);
         }
 
-        public virtual T Delete(T entity)
+        public virtual void Delete(T entity)
         {
             this.ChangeState(entity, EntityState.Deleted);
-            return entity;
         }
 
-        public virtual T Delete(object id)
+        public virtual void Delete(object id)
         {
             var entity = this.Find(id);
-            this.Delete(entity);
-            return entity;
+
+            if (entity != null)
+            {
+                this.Delete(entity);
+            }
         }
 
         public virtual void ChangeState(T entity, EntityState state)
         {
-            var entry = this.context.Entry(entity);
+            var entry = this.Context.Entry(entity);
             if (entry.State == EntityState.Detached)
             {
-                this.set.Attach(entity);
+                this.DbSet.Attach(entity);
             }
 
             entry.State = state;
@@ -66,12 +75,12 @@ namespace LeagueLeak.Data.Repositories
 
         public void Dispose()
         {
-            this.context.Dispose();
+            this.Context.Dispose();
         }
 
         public virtual int SaveChanges()
         {
-            return this.context.SaveChanges();
+            return this.Context.SaveChanges();
         }
     }
 

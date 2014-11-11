@@ -21,13 +21,13 @@
             return new ApplicationDbContext();
         }
 
-        public IDbSet<News> News { get; set; }
+        public virtual IDbSet<News> News { get; set; }
 
-        public IDbSet<Player> Players { get; set; }
+        public virtual IDbSet<Player> Players { get; set; }
 
-        public IDbSet<Champion> Champions { get; set; }
+        public virtual IDbSet<Champion> Champions { get; set; }
 
-        public IDbSet<Spell> Spells { get; set; }
+        public virtual IDbSet<Spell> Spells { get; set; }
 
         public override int SaveChanges()
         {
