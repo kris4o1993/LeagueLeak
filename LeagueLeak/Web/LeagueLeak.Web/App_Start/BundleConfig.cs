@@ -8,8 +8,13 @@ namespace LeagueLeak.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                      "~/Scripts/kendo/kendo.all.min.js",
+                      "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery")
+                .Include( "~/Scripts/kendo/jquery.min.js"));
+               // .Include( "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -27,6 +32,9 @@ namespace LeagueLeak.Web
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                      "~/Content/kendo/kendo.bootstrap.min.css",
+                      "~/Content/kendo/kendo.moonlight.min.css"));
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = true;
