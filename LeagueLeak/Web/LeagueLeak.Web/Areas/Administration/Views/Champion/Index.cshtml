@@ -1,0 +1,17 @@
+﻿@using LeagueLeak.Web.Areas.Administration.ViewModels.Champions
+@{
+    ViewBag.Title = "Champion";
+    const string ControllerName = "Champion";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@(Html.Kendo()
+    .Grid<ChampionViewModel>()
+    .Name("Grid")
+    .DataSource(data => 
+        data
+        .Ajax()
+        .Read(read => read.Action("Read", ControllerName)))
+)
+
