@@ -13,9 +13,9 @@
 
     public class HomeController : Controller
     {
-        private IRepository<News> news;
+        private IRepository<Article> news;
 
-        public HomeController(IRepository<News> news)
+        public HomeController(IRepository<Article> news)
         {
             this.news = news;
         }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace LeagueLeak.Web.ViewModels.Home
 {
-    public class IndexNewsViewModel : IMapFrom<News>
+    public class IndexNewsViewModel : IMapFrom<Article>
     {
         public string Title { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueLeak.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LeagueLeak.Models
 {
-    public class Champion
+    public class Champion : AuditInfo
     {
         public int Id { get; set; }
 

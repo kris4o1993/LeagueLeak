@@ -21,7 +21,7 @@
             return new ApplicationDbContext();
         }
 
-        public virtual IDbSet<News> News { get; set; }
+        public virtual IDbSet<Article> News { get; set; }
 
         public virtual IDbSet<Player> Players { get; set; }
 

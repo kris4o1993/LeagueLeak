@@ -12,7 +12,15 @@
     {
         IRepository<ApplicationUser> ApplicationUsers { get; }
 
-        //IRepository<ExampleModel> ExampleModels { get; }
+        IRepository<Player> Players { get; }
+
+        IRepository<Champion> Champions { get; }
+
+        IRepository<Spell> Spells { get; }
+
+        IRepository<Article> Articles { get; }
+
+        IRepository<Tag> Tags { get; set; }
 
         int SaveChanges();
     }
