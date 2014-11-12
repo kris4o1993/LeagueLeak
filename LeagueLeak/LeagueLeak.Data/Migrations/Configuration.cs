@@ -101,8 +101,7 @@ namespace LeagueLeak.Data.Migrations
             {
                 new Champion {
                     Name = "Ahri",
-                    Title = "the Nine-Tailed Fox",
-                    Roles = new List<string>() {"Mage", "Assassin"},
+                    Role = "Mage",
                     Defense = 4,
                     Magic = 8,
                     Difficulty = 5,
@@ -110,8 +109,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Thresh",
-                    Title = "the Chain Warden",
-                    Roles = new List<string>() {"Support", "Fighter"},
+                    Role = "Support",
                     Defense = 6,
                     Magic = 6,
                     Difficulty = 7,
@@ -119,8 +117,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Ezreal",
-                    Title = "the Prodigal Explorer",
-                    Roles = new List<string>() {"Marksman", "Mage"},
+                    Role = "Marksman",
                     Defense = 2,
                     Magic = 6,
                     Difficulty = 7,
@@ -128,8 +125,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Nami",
-                    Title = "the Tidecaller",
-                    Roles = new List<string>() {"Support", "Mage"},
+                    Role = "Support",
                     Defense = 3,
                     Magic = 7,
                     Difficulty = 5,
@@ -137,8 +133,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Zyra",
-                    Title = "Rise of the Thorns",
-                    Roles = new List<string>() {"Support", "Mage"},
+                    Role = "Support",
                     Defense = 3,
                     Magic = 8,
                     Difficulty = 7,
@@ -146,8 +141,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Kassadin",
-                    Title = "the Void Walker",
-                    Roles = new List<string>() {"Mage"},
+                    Role = "Mage",
                     Defense = 5,
                     Magic = 8,
                     Difficulty = 8,
@@ -155,8 +149,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Twitch",
-                    Title = "the Plague Rat",
-                    Roles = new List<string>() {"Marksman", "Assassin"},
+                    Role = "Marksman",
                     Defense = 2,
                     Magic = 3,
                     Difficulty = 6,
@@ -164,8 +157,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Blitzcrank",
-                    Title = "the Great Steam Golem",
-                    Roles = new List<string>() {"Fighter", "Tank"},
+                    Role = "Tank",
                     Defense = 8,
                     Magic = 5,
                     Difficulty = 4,
@@ -173,8 +165,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Urgot",
-                    Title = "the Headsman's Pride",
-                    Roles = new List<string>() {"Fighter", "Marksman"},
+                    Role = "Fighter",
                     Defense = 5,
                     Magic = 3,
                     Difficulty = 8,
@@ -182,8 +173,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Nocturne",
-                    Title = "the Eternal Nightmare",
-                    Roles = new List<string>() {"Fighter", "Assassin"},
+                    Role = "Assassin",
                     Defense = 5,
                     Magic = 2,
                     Difficulty = 4,
@@ -191,8 +181,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Anivia",
-                    Title = "the Cryophoenix",
-                    Roles = new List<string>() {"Mage", "Support"},
+                    Role = "Mage",
                     Defense = 4,
                     Magic = 10,
                     Difficulty = 10,
@@ -200,8 +189,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Aatrox",
-                    Title = "the Darkin Blade",
-                    Roles = new List<string>() {"Fighter", "Tank"},
+                    Role = "Fighter",
                     Defense = 4,
                     Magic = 3,
                     Difficulty = 4,
@@ -209,8 +197,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Tryndamere",
-                    Title = "the Barbarian King",
-                    Roles = new List<string>() {"Fighter", "Assassin"},
+                    Role = "Fighter",
                     Defense = 5,
                     Magic = 2,
                     Difficulty = 5,
@@ -218,8 +205,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Gragas",
-                    Title = "the Rabble Rouser",
-                    Roles = new List<string>() {"Fighter", "Mage"},
+                    Role = "Fighter",
                     Defense = 7,
                     Magic = 6,
                     Difficulty = 5,
@@ -227,8 +213,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Cassiopeia",
-                    Title = "the Serpent's Embrace",
-                    Roles = new List<string>() {"Mage"},
+                    Role = "Mage",
                     Defense = 3,
                     Magic = 9,
                     Difficulty = 10,
@@ -236,8 +221,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Ryze",
-                    Title = "the Rogue Mage",
-                    Roles = new List<string>() {"Fighter", "Mage"},
+                    Role = "Mage",
                     Defense = 2,
                     Magic = 10,
                     Difficulty = 7,
@@ -245,8 +229,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Poppy",
-                    Title = "the Iron Ambassador",
-                    Roles = new List<string>() {"Fighter", "Assassin"},
+                    Role = "Assassin",
                     Defense = 6,
                     Magic = 5,
                     Difficulty = 7,
@@ -254,8 +237,7 @@ namespace LeagueLeak.Data.Migrations
                 },
                 new Champion {
                     Name = "Sion",
-                    Title = "The Undead Juggernaut",
-                    Roles = new List<string>() {"Fighter", "Tank"},
+                    Role = "Tank",
                     Defense = 5,
                     Magic = 1,
                     Difficulty = 4,

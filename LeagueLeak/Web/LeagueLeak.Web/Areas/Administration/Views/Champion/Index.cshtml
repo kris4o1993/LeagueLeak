@@ -9,9 +9,40 @@
 @(Html.Kendo()
     .Grid<ChampionViewModel>()
     .Name("Grid")
+    .Columns(cols => 
+    {
+        cols.Bound(pr => pr.Name);
+        cols.Bound(pr => pr.Role);
+        cols.Bound(pr => pr.ImagePath);
+        cols.Bound(pr => pr.Defense);
+        cols.Bound(pr => pr.Magic);
+        cols.Bound(pr => pr.Difficulty);
+        cols.Bound(pr => pr.Attack);
+        cols.Bound(pr => pr.CreatedOn).Hidden();
+        cols.Bound(pr => pr.ModifiedOn).Hidden();
+        cols.Command(com => com.Edit()).Title("Edit");
+        cols.Command(com => com.Destroy()).Title("Delete");
+    })
+    .Pageable(p => p.Refresh(true))
+    .ColumnMenu()
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Editable(e =>
+    {
+        e.Mode(GridEditMode.PopUp);
+    })
+    .ToolBar( t => 
+    {
+        t.Create();
+    })
     .DataSource(data => 
         data
         .Ajax()
-        .Read(read => read.Action("Read", ControllerName)))
+        .Model(m => m.Id(c => c.Id))
+        .Read(read => read.Action("Read", ControllerName))
+        .Create(create => create.Action("Create", ControllerName))
+        .Update(update => update.Action("Update", ControllerName))
+        .Destroy(destroy => destroy.Action("Destroy", ControllerName)))
 )
 

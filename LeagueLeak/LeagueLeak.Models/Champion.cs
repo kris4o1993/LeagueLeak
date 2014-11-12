@@ -18,12 +18,7 @@ namespace LeagueLeak.Models
         public string Name { get; set; }
 
         [Required]
-        [MinLength(2)]
-        [MaxLength(50)]
-        public string Title { get; set; }
-
-        [Required]
-        public List<string> Roles { get; set; }
+        public string Role { get; set; }
 
         public string ImagePath { get; set; }
 

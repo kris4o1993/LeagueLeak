@@ -1,5 +1,7 @@
 ﻿namespace LeagueLeak.Web.Areas.Administration.ViewModels.Champions
 {
+    using LeagueLeak.Infrastructure.Mapping;
+    using LeagueLeak.Models;
     using LeagueLeak.Web.Areas.Administration.ViewModels.Base;
     using System;
     using System.Collections.Generic;
@@ -8,7 +10,7 @@
     using System.Web;
     using System.Web.Mvc;
 
-    public class ChampionViewModel : AdministrationViewModel
+    public class ChampionViewModel : AdministrationViewModel, IMapFrom<Champion>
     {
         [HiddenInput(DisplayValue = false)]
         public int? Id { get; set; }
@@ -19,15 +21,9 @@
         [MaxLength(30)]
         public string Name { get; set; }
 
-        [Display(Name = "Champion title")]
+        [Display(Name = "Role")]
         [Required]
-        [MinLength(2)]
-        [MaxLength(50)]
-        public string Title { get; set; }
-
-        [Display(Name = "Roles")]
-        [Required]
-        public List<string> Roles { get; set; }
+        public string Role { get; set; }
 
         [Display(Name = "Avatar")]
         public string ImagePath { get; set; }
