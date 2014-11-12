@@ -9,7 +9,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class ApplicationData
+    public class ApplicationData : IApplicationData
     {
         private DbContext context;
         private IDictionary<Type, object> repositories;
@@ -84,5 +84,11 @@
 
             return (IRepository<T>)this.repositories[typeOfRepository];
         }
+
+        public IRepository<ApplicationUser> ApplicationUsers
+        {
+            get { throw new NotImplementedException(); }
+        }
+
     }
 }

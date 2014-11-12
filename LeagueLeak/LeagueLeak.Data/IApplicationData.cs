@@ -20,8 +20,9 @@
 
         IRepository<Article> Articles { get; }
 
-        IRepository<Tag> Tags { get; set; }
+        IRepository<Tag> Tags { get; }
 
         int SaveChanges();
+
     }
 }
