@@ -9,7 +9,7 @@
     using System.Web.Mvc;
 
     //[Authorize(Roles = "Admin")]
-    public abstract class AdminController : BaseController
+    public class AdminController : BaseController
     {
         public AdminController(IApplicationData data)
             :base(data)

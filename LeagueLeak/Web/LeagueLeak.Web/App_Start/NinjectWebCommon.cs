@@ -68,6 +68,7 @@ namespace LeagueLeak.Web.App_Start
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
             kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(typeof(IApplicationData)).To(typeof(ApplicationData)).WithConstructorArgument("context", c => new ApplicationDbContext());
         }        
     }
 }
