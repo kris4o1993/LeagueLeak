@@ -12,7 +12,8 @@ namespace LeagueLeak.Common.Extensions
         {
             foreach (var item in collection)
             {
-                action(item);
+                action(item); 
+
             }
         }
     }
