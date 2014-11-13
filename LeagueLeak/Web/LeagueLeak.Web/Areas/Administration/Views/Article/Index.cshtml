@@ -24,7 +24,7 @@
     .Filterable()
     .Editable(e =>
     {
-        e.Mode(GridEditMode.PopUp).Window(w => w.Width(700));
+        e.Mode(GridEditMode.PopUp).Window(w => w.Resizable());
         e.ConfirmDelete("Are you sure you want to delete this item?");
     })
     .ToolBar(t =>
