@@ -22,7 +22,7 @@
 
         public ActionResult Index()
         {
-            var news = this.news.All().Project().To<IndexNewsViewModel>();
+            var news = this.news.All().Project().To<IndexArticlesViewModel>();
             return View(news);
         }
     }

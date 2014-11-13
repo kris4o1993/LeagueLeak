@@ -14,6 +14,18 @@ namespace LeagueLeak.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Display player",
+                url: "player/{name}",
+                defaults: new { controller = "Players", action = "Display" }
+             );
+
+            routes.MapRoute(
+                name: "Display article",
+                url: "articles/{id}/{url}",
+                defaults: new { controller = "Articles", action = "Display" }
+             );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },

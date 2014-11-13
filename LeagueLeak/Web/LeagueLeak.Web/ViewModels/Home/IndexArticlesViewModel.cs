@@ -7,8 +7,12 @@ using System.Web;
 
 namespace LeagueLeak.Web.ViewModels.Home
 {
-    public class IndexNewsViewModel : IMapFrom<Article>
+    public class IndexArticlesViewModel : IMapFrom<Article>
     {
         public string Title { get; set; }
+
+        public string Content { get; set; }
+
+        public DateTime DateCreated { get; set; }
     }
 }

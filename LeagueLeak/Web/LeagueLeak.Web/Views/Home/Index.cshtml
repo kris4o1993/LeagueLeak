@@ -1,18 +1,19 @@
-﻿@model IEnumerable<LeagueLeak.Web.ViewModels.Home.IndexNewsViewModel>
+﻿@model IEnumerable<LeagueLeak.Web.ViewModels.Home.IndexArticlesViewModel>
 @{
     ViewBag.Title = "Home Page";
 }
 
 <div class="container">
-    @foreach(var news in Model)
+    @foreach(var article in Model)
     {
         <div class="jumbotron">
             <div class="row">
-                <h2>@news.Title</h2>
+                <h2>@article.Title</h2>
             </div>
             <div class="row">
-                <p>Content here!</p>
+                <p>@article.Content</p>
             </div>
+            <p>Date Created: @article.DateCreated</p>
         </div>
     }
 </div>

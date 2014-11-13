@@ -1,17 +1,16 @@
-﻿using LeagueLeak.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeagueLeak.Data.Repositories
+﻿namespace LeagueLeak.Data.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using LeagueLeak.Common.Models;
+
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-
         public GenericRepository(DbContext context)
         {
             if (context == null)
@@ -83,5 +82,4 @@ namespace LeagueLeak.Data.Repositories
             return this.Context.SaveChanges();
         }
     }
-
 }

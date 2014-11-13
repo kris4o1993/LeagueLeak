@@ -110,6 +110,7 @@ namespace LeagueLeak.Web.Controllers
             {
                 return View(model);
             }
+
             // Generate the token and send it
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.Number);
             if (UserManager.SmsService != null)

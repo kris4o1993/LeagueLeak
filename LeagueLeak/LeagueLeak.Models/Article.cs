@@ -1,13 +1,13 @@
-﻿using LeagueLeak.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeagueLeak.Models
+﻿namespace LeagueLeak.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using LeagueLeak.Common.Models;
+
     public class Article : AuditInfo, IDeletableEntity
     {
         public int Id { get; set; }

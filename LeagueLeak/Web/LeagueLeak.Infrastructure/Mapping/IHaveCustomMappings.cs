@@ -2,7 +2,7 @@
 {
     using AutoMapper;
 
-    interface IHaveCustomMappings
+    public interface IHaveCustomMappings
     {
         void CreateMappings(IConfiguration configuration);
     }

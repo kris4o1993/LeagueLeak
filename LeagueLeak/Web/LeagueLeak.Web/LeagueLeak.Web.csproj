@@ -192,13 +192,19 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Administration\Controllers\ChampionController.cs" />
+    <Compile Include="Areas\Administration\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Base\AdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Articles\ArticleViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Champions\ChampionViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Players\PlayerViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,7 +212,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Home\IndexNewsViewModel.cs" />
+    <Compile Include="ViewModels\Home\IndexArticlesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -456,6 +462,8 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Administration\Views\Article\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Player\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -519,6 +527,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Admin\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Players\" />
+    <Folder Include="Views\Questions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

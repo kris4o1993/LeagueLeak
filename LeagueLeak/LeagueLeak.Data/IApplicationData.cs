@@ -1,12 +1,13 @@
 ﻿namespace LeagueLeak.Data
 {
-    using LeagueLeak.Data.Repositories;
-    using LeagueLeak.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
+    using LeagueLeak.Data.Repositories;
+    using LeagueLeak.Models;
 
     public interface IApplicationData
     {
@@ -23,6 +24,5 @@
         IRepository<Tag> Tags { get; }
 
         int SaveChanges();
-
     }
 }

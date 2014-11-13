@@ -1,13 +1,14 @@
 ﻿namespace LeagueLeak.Data
 {
-    using LeagueLeak.Data.Repositories;
-    using LeagueLeak.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
+    using LeagueLeak.Data.Repositories;
+    using LeagueLeak.Models;
 
     public class ApplicationData : IApplicationData
     {
@@ -68,17 +69,12 @@
             }
         }
 
-        public int SaveChanges()
-        {
-            return this.context.SaveChanges();
-        }
-
         private IRepository<T> GetRepository<T>() where T : class
         {
             var typeOfRepository = typeof(T);
             if (!this.repositories.ContainsKey(typeOfRepository))
             {
-                var newRepository = Activator.CreateInstance(typeof(GenericRepository<T>), context);
+                var newRepository = Activator.CreateInstance(typeof(GenericRepository<T>), this.context);
                 this.repositories.Add(typeOfRepository, newRepository);
             }
 
@@ -90,5 +86,9 @@
             get { throw new NotImplementedException(); }
         }
 
+        public int SaveChanges()
+        {
+            return this.context.SaveChanges();
+        }
     }
 }

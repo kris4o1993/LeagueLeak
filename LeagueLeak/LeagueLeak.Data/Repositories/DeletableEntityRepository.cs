@@ -1,13 +1,13 @@
-﻿using LeagueLeak.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeagueLeak.Data.Repositories
+﻿namespace LeagueLeak.Data.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using LeagueLeak.Common.Models;
+
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
        where T : class, IDeletableEntity
     {
@@ -32,6 +32,11 @@ namespace LeagueLeak.Data.Repositories
             entity.IsDeleted = true;
             var entry = this.Context.Entry(entity);
             entry.State = EntityState.Modified;
+        }
+
+        public void ActualDelete(T entity)
+        {
+            base.Delete(entity);
         }
     }
 }
