@@ -11,7 +11,7 @@
 
     public interface IApplicationData
     {
-        IRepository<ApplicationUser> ApplicationUsers { get; }
+        IRepository<ApplicationUser> Users { get; }
 
         IRepository<Player> Players { get; }
 

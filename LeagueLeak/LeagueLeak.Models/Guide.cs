@@ -8,13 +8,6 @@
 
     public class Guide
     {
-        private ICollection<Spell> spells;
-
-        public Guide()
-        {
-            this.spells = new HashSet<Spell>();
-        }
-
         public int Id { get; set; }
 
         public string Title { get; set; }
@@ -23,16 +16,14 @@
 
         public int UserId { get; set; }
 
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         public int ChampionId { get; set; }
 
         public virtual Champion Champion { get; set; }
 
-        public virtual ICollection<Spell> Spells
-        {
-            get { return this.spells; }
-            set { this.spells = value; }
-        }
+        public int SpellId { get; set; }
+
+        public virtual Spell Spell { get; set; }
     }
 }

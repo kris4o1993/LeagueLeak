@@ -10,20 +10,21 @@
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
     using LeagueLeak.Web.ViewModels.Home;
+    using AutoMapper;
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private IRepository<Article> news;
-
-        public HomeController(IRepository<Article> news)
+        public HomeController(IApplicationData data)
+            :base(data)
         {
-            this.news = news;
+            
         }
 
         public ActionResult Index()
         {
-            var news = this.news.All().Project().To<IndexArticlesViewModel>();
-            return View(news);
+            var articles = this.Data.Articles.All();
+            // var news = this.news.All().Project().To<IndexArticlesViewModel>();
+            return View(articles);
         }
     }
 }

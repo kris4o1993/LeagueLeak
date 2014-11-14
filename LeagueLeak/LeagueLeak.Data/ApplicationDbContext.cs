@@ -30,6 +30,8 @@
 
         public virtual IDbSet<Spell> Spells { get; set; }
 
+        public virtual IDbSet<Guide> Guides { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

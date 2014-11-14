@@ -21,7 +21,7 @@ namespace LeagueLeak.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            if(!context.Users.Any())
+            if (!context.Users.Any())
             {
                 SeedRolesAndUsers(context);
             }

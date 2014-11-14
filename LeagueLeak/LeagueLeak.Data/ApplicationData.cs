@@ -81,11 +81,6 @@
             return (IRepository<T>)this.repositories[typeOfRepository];
         }
 
-        public IRepository<ApplicationUser> ApplicationUsers
-        {
-            get { throw new NotImplementedException(); }
-        }
-
         public int SaveChanges()
         {
             return this.context.SaveChanges();
