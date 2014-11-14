@@ -8,7 +8,7 @@
     using System.Web;
     using System.Web.Mvc;
 
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Administrator")]
     public class AdminController : BaseController
     {
         public AdminController(IApplicationData data)

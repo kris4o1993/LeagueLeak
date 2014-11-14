@@ -21,7 +21,7 @@
 
         IRepository<Article> Articles { get; }
 
-        IRepository<Tag> Tags { get; }
+        IRepository<Guide> Guides { get; }
 
         int SaveChanges();
     }

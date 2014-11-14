@@ -61,11 +61,11 @@
             }
         }
 
-        public IRepository<Tag> Tags
+        public IRepository<Guide> Guides
         {
             get
             {
-                return this.GetRepository<Tag>();
+                return this.GetRepository<Guide>();
             }
         }
 

@@ -6,6 +6,8 @@ namespace LeagueLeak.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using LeagueLeak.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
@@ -19,6 +21,11 @@ namespace LeagueLeak.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
+            if(!context.Users.Any())
+            {
+                SeedRolesAndUsers(context);
+            }
+
             if (!context.Champions.Any())
             {
                 var champions = this.ChampionsToSeed();
@@ -42,6 +49,17 @@ namespace LeagueLeak.Data.Migrations
                 var articles = this.ArticlesToSeed();
                 context.Articles.AddOrUpdate(articles.ToArray());
             }
+        }
+
+        private void SeedRolesAndUsers(ApplicationDbContext context)
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            roleManager.Create(new IdentityRole("Administrator"));
+
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var user = new ApplicationUser { UserName = "admin@admin.com" };
+            userManager.Create(user, "admin321");
+            userManager.AddToRole(user.Id, "Administrator");
         }
 
         private List<Spell> SpellsToSeed()

@@ -32,7 +32,7 @@
             var players = this.Data.
                 Players
                 .All()
-                .ToDataSourceResult(request);
+                .ToDataSourceResult(request); 
 
             return this.Json(players);
         }
