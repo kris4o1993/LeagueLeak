@@ -29,8 +29,7 @@ namespace LeagueLeak.Web.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var champ = this.Data.Champions.All().Where(a => a.Id == id).Project().To<ChampionViewModel>().FirstOrDefault();
-
+            var champ = this.Data.Champions.All().Where(c => c.Id == id).Project().To<ChampionViewModel>().FirstOrDefault();
             return View(champ);
         }
     }

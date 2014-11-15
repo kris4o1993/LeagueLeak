@@ -23,10 +23,10 @@
             </div>
             <div class="navbar-collapse collapse" id="menu">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("All Champions", "All", "Champions")</li>
+                    <li>@Html.ActionLink("All Guides", "All", "Guides")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("All Guides", "All", "Guides")</li>
                         <li>@Html.ActionLink("Create New Guide", "Create", "Guides")</li>
                     }
                 </ul>

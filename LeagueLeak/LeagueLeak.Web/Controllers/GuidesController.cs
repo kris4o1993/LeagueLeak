@@ -29,7 +29,7 @@ namespace LeagueLeak.Web.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var guide = this.Data.Guides.All().Where(a => a.Id == id).Project().To<GuideDetailsViewModel>().FirstOrDefault();
+            var guide = this.Data.Guides.All().Where(g => g.Id == id).Project().To<GuideDetailsViewModel>().FirstOrDefault();
 
             return View(guide);
         }

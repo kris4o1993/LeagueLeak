@@ -17,5 +17,7 @@ namespace LeagueLeak.Models
 
         [MinLength(10)]
         public string Description { get; set; }
+
+        public string ImagePath { get; set; }
     }
 }

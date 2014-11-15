@@ -118,7 +118,7 @@ namespace LeagueLeak.Data.Migrations
 
         private List<Spell> SpellsToSeed()
         {
-            return new List<Spell>()
+            var spells = new List<Spell>()
             {
                 new Spell 
                 {
@@ -181,11 +181,18 @@ namespace LeagueLeak.Data.Migrations
                     Description = "Your champion can move through units and has 27% increased Movement Speed for 10 seconds."
                 },
             };
+
+            foreach (var spell in spells)
+            {
+                spell.ImagePath = "~/Content/spells/" + spell.Name + ".png";
+            }
+
+            return spells;
         }
 
         private List<Champion> ChampionsToSeed()
         {
-            return new List<Champion>()
+            var champs = new List<Champion>()
             {
                 new Champion 
                 {
@@ -350,6 +357,14 @@ namespace LeagueLeak.Data.Migrations
                     Attack = 9
                 }
             };
+
+            foreach (var champ in champs)
+            {
+                champ.ImagePath = "~/Content/champions/" + champ.Name + ".png";
+            }
+
+            return champs;
+
         }
 
         private List<Player> PlayersToSeed()
