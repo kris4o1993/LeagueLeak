@@ -183,9 +183,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ChampionsController.cs" />
     <Compile Include="Controllers\GuidesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -194,6 +196,7 @@
     <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\ArticleDetailsViewModel.cs" />
+    <Compile Include="Models\Champions\AllChampionsViewModel.cs" />
     <Compile Include="Models\Guides\GuideDetailsViewModel.cs" />
     <Compile Include="Models\Guides\AllGuidesViewModel.cs" />
     <Compile Include="Models\Home\IndexArticlesViewModel.cs" />
@@ -504,10 +507,13 @@
     <Content Include="Views\Articles\Details.cshtml" />
     <Content Include="Views\Guides\All.cshtml" />
     <Content Include="Views\Guides\Details.cshtml" />
+    <Content Include="Views\Champions\All.cshtml" />
+    <Content Include="Views\Champions\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Players\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

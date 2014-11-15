@@ -36,5 +36,7 @@
         [Required]
         [Range(1, 10)]
         public int Attack { get; set; }
+
+        public string ImagePath { get; set; }
     }
 }

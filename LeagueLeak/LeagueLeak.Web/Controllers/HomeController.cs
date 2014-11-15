@@ -18,7 +18,6 @@ namespace LeagueLeak.Web.Controllers
 
         }
 
-        [OutputCache(Duration = 60 * 10)]
         public ActionResult Index()
         {
             var indexViewModel = this.Data.Articles.All()

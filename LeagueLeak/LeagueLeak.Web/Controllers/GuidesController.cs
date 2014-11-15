@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
-using LeagueLeak.Web.Models.Guides;
 
 namespace LeagueLeak.Web.Controllers
 {

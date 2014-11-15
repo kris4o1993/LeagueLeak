@@ -1,0 +1,30 @@
+﻿@model LeagueLeak.Web.Models.Champions.ChampionViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <h1>@Model.ChampionName</h1>
+    <div class="row">
+        <em>Role: @Model.Role</em>
+    </div>
+    <div class="row">
+        <p>Magic: @Model.Magic</p>
+    </div>
+    <div class="row">
+        <p>Attack: @Model.Attack</p>
+    </div>
+    <div class="row">
+        <p>Defense: @Model.Defense</p>
+    </div>
+    <div class="row">
+        <p>Difficulty: @Model.Difficulty</p>
+    </div>
+    <div class="row">
+        <p>Image: @Model.ImagePath</p>
+    </div>
+    <div class="content">
+        Comments here!!!!
+    </div>
+</div>

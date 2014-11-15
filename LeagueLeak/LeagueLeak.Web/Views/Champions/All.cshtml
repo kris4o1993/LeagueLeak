@@ -1,0 +1,14 @@
+﻿@model IEnumerable<LeagueLeak.Web.Models.Champions.ChampionViewModel>
+
+@{
+    ViewBag.Title = "All Champions";
+}
+
+<div class="row">
+    @foreach (var champion in @Model)
+    {
+        <div class="col-md-3">
+            <a href="/Champions/Details/@champion.Id" class="btn btn-default">@champion.ChampionName</a>
+        </div>
+    }
+</div>
