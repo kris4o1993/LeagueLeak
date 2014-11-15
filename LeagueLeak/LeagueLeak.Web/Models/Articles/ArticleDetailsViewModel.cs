@@ -1,6 +1,7 @@
 ﻿using LeagueLeak.Models;
 using LeagueLeak.Web.Infrastructure.Mapping;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +16,7 @@ namespace LeagueLeak.Web.Models.Articles
 
         public DateTime DateCreated { get; set; }
 
-
+        public ICollection<CommentsViewModel> Comments { get; set; }
 
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {

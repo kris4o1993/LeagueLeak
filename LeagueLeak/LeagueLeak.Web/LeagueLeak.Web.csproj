@@ -197,6 +197,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\ArticleDetailsViewModel.cs" />
     <Compile Include="Models\Champions\AllChampionsViewModel.cs" />
+    <Compile Include="Models\CommentsViewModel.cs" />
     <Compile Include="Models\Guides\GuideDetailsViewModel.cs" />
     <Compile Include="Models\Guides\AllGuidesViewModel.cs" />
     <Compile Include="Models\Home\IndexArticlesViewModel.cs" />

@@ -22,6 +22,8 @@ namespace LeagueLeak.Web.Models.Guides
 
         public string SpellName { get; set; }
 
+        public ICollection<CommentsViewModel> Comments { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Guide, GuideDetailsViewModel>()
