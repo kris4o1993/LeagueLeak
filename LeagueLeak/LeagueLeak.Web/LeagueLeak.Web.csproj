@@ -510,6 +510,7 @@
     <Content Include="Views\Guides\Details.cshtml" />
     <Content Include="Views\Champions\All.cshtml" />
     <Content Include="Views\Champions\Details.cshtml" />
+    <Content Include="Views\Shared\_CommentsSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
