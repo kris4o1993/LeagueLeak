@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace LeagueLeak.Web.Controllers
 {
-    public class ArticlesController : BaseController
+    public class ArticlesController : Controller
     {
+
         // GET: Questions
         public ActionResult Display(int id, string url)
         {

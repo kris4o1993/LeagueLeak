@@ -9,14 +9,7 @@ namespace LeagueLeak.Web.ViewModels.Guides
 {
     public class GuideViewModel : IMapFrom<Guide>
     {
-        private ICollection<Spell> spells;
-
-        public GuideViewModel()
-        {
-            this.spells = new HashSet<Spell>();
-        }
-
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         public string Title { get; set; }
 
@@ -24,16 +17,14 @@ namespace LeagueLeak.Web.ViewModels.Guides
 
         public int UserId { get; set; }
 
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
-        public int ChampionId { get; set; }
+        public string SelectedSpellName { get; set; }
 
-        public virtual Champion Champion { get; set; }
+        public string SelectedChampionName { get; set; }
 
-        public virtual ICollection<Spell> Spells
-        {
-            get { return this.spells; }
-            set { this.spells = value; }
-        }
+        public IEnumerable<Spell> AllSpells { get; set; }
+
+        public IEnumerable<Champion> AllChampions { get; set; }
     }
 }

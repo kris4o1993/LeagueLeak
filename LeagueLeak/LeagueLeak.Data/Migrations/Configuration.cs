@@ -16,7 +16,7 @@ namespace LeagueLeak.Data.Migrations
             this.AutomaticMigrationsEnabled = true;
 
             // TODO: Remove after project is completed
-            this.AutomaticMigrationDataLossAllowed = true;
+            this.AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(ApplicationDbContext context)
