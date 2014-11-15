@@ -1,0 +1,21 @@
+﻿@model IEnumerable<LeagueLeak.Web.Models.Home.IndexArticlesViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    @foreach (var article in Model)
+    {
+        <div class="jumbotron">
+            <div class="row">
+                <h2>@article.ArticleTitle</h2>
+            </div>
+            <div class="row">
+                <p>@article.NumberOfComments comments, published on @article.DateCreated</p>
+            </div>
+            <div class="row">
+                <a href="/Articles/Details/@article.Id" class="btn btn-default">Read and comment</a>
+            </div>
+        </div>
+    }
+</div>

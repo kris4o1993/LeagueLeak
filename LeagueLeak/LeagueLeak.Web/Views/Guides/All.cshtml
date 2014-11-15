@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LeagueLeak.Web.Models.Guides.AllGuidesViewModel>
+@{
+    ViewBag.Title = "All Guides";
+}
+
+<div class="container">
+    @foreach (var guide in Model)
+    {
+        <div class="jumbotron">
+            <div class="row">
+                <h2>@guide.GuideTitle</h2>
+                <h3>@guide.AuthorName</h3>
+            </div>
+            <div class="row">
+                <p>Champion: @guide.ChampionName</p>
+            </div>
+            <div class="row">
+                <p>Spell: @guide.SpellName</p>
+            </div>
+            <div class="row">
+                <a href="/Guides/Details/@guide.Id" class="btn btn-default">Read and comment</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,18 @@
+﻿@model LeagueLeak.Web.Models.Articles.ArticleDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <h1>@Model.ArticleTitle</h1>
+    <div class="row">
+        <em>@Model.DateCreated</em>
+    </div>
+    <div class="row">
+        <p>@Model.Content</p>
+    </div>
+    <div class="content">
+        Comments here!!!!
+    </div>
+</div>
