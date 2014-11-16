@@ -8,7 +8,7 @@
 @(Html.Kendo()
     .Grid<AllGuidesViewModel>(Model)
     .Name("Grid")
-    .HtmlAttributes(new { @class = "text-center"})
+    .HtmlAttributes(new { @class = "text-center" })
     .Columns(cols =>
     {
         cols.Bound(pr => pr.GuideTitle);
@@ -21,6 +21,7 @@
     .Pageable(p => p.Refresh(true))
     .ColumnMenu()
     .Sortable()
+    .Filterable()
     .Groupable()
     .Resizable(resize => resize.Columns(true))
 )
