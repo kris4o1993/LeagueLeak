@@ -74,9 +74,11 @@ namespace LeagueLeak.Web.Controllers
             if (guide != null && ModelState.IsValid)
             {
                 var dbGuide = Mapper.Map<Guide>(guide);
+                dbGuide.Author = this.UserProfile;
                 dbGuide.AuthorId = this.UserProfile.Id;
                 this.Data.Guides.Add(dbGuide);
                 this.Data.SaveChanges();
+                this.UserProfile.Points++;
 
                 return RedirectToAction("All", "Guides");
             }
@@ -92,7 +94,7 @@ namespace LeagueLeak.Web.Controllers
 
         private IEnumerable<SelectListItem> ChampionPopulator()
         {
-            var championNames = this.Data.Champions.All().Select(x => new SelectListItem
+            var championNames = this.Data.Champions.All().OrderBy(o => o.Name).Select(x => new SelectListItem
             {
                 Value = x.Id.ToString(),
                 Text = x.Name
@@ -103,7 +105,7 @@ namespace LeagueLeak.Web.Controllers
 
         private IEnumerable<SelectListItem> SpellPopulator()
         {
-            var spellNames = this.Data.Spells.All().Select(x => new SelectListItem
+            var spellNames = this.Data.Spells.All().OrderBy(o => o.Name).Select(x => new SelectListItem
             {
                 Value = x.Id.ToString(),
                 Text = x.Name

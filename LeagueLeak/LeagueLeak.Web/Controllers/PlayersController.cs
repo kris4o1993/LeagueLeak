@@ -32,6 +32,7 @@ namespace LeagueLeak.Web.Controllers
             return View("Home/Error");
         }
 
+        [HttpGet]
         public ActionResult Leaderboards()
         {
             var players = this.Data.Players.All().OrderByDescending(p => p.Rating).Take(10).Project().To<LeaderboardsViewModel>().ToList();

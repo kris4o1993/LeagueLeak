@@ -19,28 +19,39 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("LeagueLeak", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("LeagueLeak", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse" id="menu">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("ALL CHAMPIONS", "All", "Champions")</li>
+                    <li>@Html.ActionLink("ALL CHAMPIONS", "All", "Champions", new { area = string.Empty }, null)</li>
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">GUIDES<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("ALL GUIDES", "All", "Guides")</li>
+                            <li>@Html.ActionLink("ALL GUIDES", "All", "Guides", new { area = string.Empty }, null)</li>
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <li>@Html.ActionLink("CREATE A GUIDE", "Add", "Guides")</li>
+                                <li>@Html.ActionLink("CREATE A GUIDE", "Add", "Guides", new { area = string.Empty }, null)</li>
                             }
                         </ul>
                     </li>
-                </ul>
-                @using (Html.BeginForm("Details", "Players", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <input type="text" class="form-control col-lg-8" placeholder="Search for a player..." name="name">
-                }
-                
+                    <li>@Html.ActionLink("PLAYER LEADERBOARDS", "Leaderboards", "Players", new { area = string.Empty }, null)</li>
+                    @using (Html.BeginForm("Details", "Players", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="text" class="form-control col-lg-8" placeholder="Search for a player..." name="name">
+                    }
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">ADMINISTRATION<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("CHAMPIONS", "Index", "Champions", new { area = "Administration" })</li>
+                                <li>@Html.ActionLink("SPELLS", "Index", "Spells", new { area = "Administration" })</li>
+                                <li>@Html.ActionLink("ARTICLES", "Index", "Articles", new { area = "Administration" })</li>
+                            </ul>
+                        </li>
+                    }
+                    </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

@@ -6,9 +6,11 @@
 
 <h2>Leaderboards</h2>
 
-@foreach (var item in @Model)
-{
-    <div class="row">
-        <p>@item.PlayerName - @item.PlayerRating</p>
-    </div>
-}
+<div class="jumbotron">
+    @foreach (var item in @Model)
+    {
+        <div class="row">
+            <p>@item.PlayerName - @item.PlayerRating</p>
+        </div>
+    }
+</div>
