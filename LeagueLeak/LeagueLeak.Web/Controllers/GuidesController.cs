@@ -36,5 +36,33 @@ namespace LeagueLeak.Web.Controllers
 
             return View(guide);
         }
+
+        [Authorize(Roles = "Administrator, Premium")]
+        public ActionResult Add()
+        {
+            var champions = this.Data.Champions.All();
+            var championNames = new List<string>();
+
+            foreach (var champion in champions)
+            {
+                championNames.Add(champion.Name);
+            }
+
+            var spells = this.Data.Spells.All();
+            var spellNames = new List<string>();
+
+            foreach (var spell in spells)
+            {
+                spellNames.Add(spell.Name);
+            }
+
+            var addGuideViewModel = new AddGuideViewModel()
+            {
+                ChampionNames = championNames,
+                SpellNames = spellNames
+            };
+
+            return View(addGuideViewModel);
+        }
     }
 }

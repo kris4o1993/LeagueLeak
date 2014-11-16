@@ -7,7 +7,7 @@
             @foreach (var comment in @Model.Comments)
             {
                 <p>@comment.Content</p>
-                <p>on @comment.DateCreated, by @comment.AuthorName</p>
+                <em>on @comment.DateCreated, by @comment.AuthorName</em>
                 <hr/>
             }
         </div>

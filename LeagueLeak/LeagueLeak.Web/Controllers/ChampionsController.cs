@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
 using LeagueLeak.Web.Models.Champions;
+using LeagueLeak.Web.Models;
 
 namespace LeagueLeak.Web.Controllers
 {
@@ -30,6 +31,10 @@ namespace LeagueLeak.Web.Controllers
         public ActionResult Details(int id)
         {
             var champ = this.Data.Champions.All().Where(c => c.Id == id).Project().To<ChampionViewModel>().FirstOrDefault();
+
+            var commentsForChampion = this.Data.Comments.All().Where(c => c.ChampionId == id).Project().To<CommentsViewModel>().ToList();
+            champ.Comments = commentsForChampion;
+
             return View(champ);
         }
     }

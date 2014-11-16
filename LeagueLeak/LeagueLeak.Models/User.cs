@@ -18,7 +18,10 @@ namespace LeagueLeak.Models
         {
             this.comments = new HashSet<Comment>();
             this.guides = new HashSet<Guide>();
+            this.Points = 0;
         }
+
+        public int Points { get; set; }
 
         public virtual ICollection<Comment> Comments
         {

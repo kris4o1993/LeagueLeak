@@ -26,6 +26,8 @@ namespace LeagueLeak.Web.Models.Champions
 
         public string ImagePath { get; set; }
 
+        public ICollection<CommentsViewModel> Comments { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Champion, ChampionViewModel>()

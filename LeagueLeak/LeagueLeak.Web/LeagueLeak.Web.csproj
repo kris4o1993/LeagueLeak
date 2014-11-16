@@ -198,6 +198,7 @@
     <Compile Include="Models\Articles\ArticleDetailsViewModel.cs" />
     <Compile Include="Models\Champions\AllChampionsViewModel.cs" />
     <Compile Include="Models\CommentsViewModel.cs" />
+    <Compile Include="Models\Guides\AddGuideViewModel.cs" />
     <Compile Include="Models\Guides\GuideDetailsViewModel.cs" />
     <Compile Include="Models\Guides\AllGuidesViewModel.cs" />
     <Compile Include="Models\Home\IndexArticlesViewModel.cs" />
@@ -511,6 +512,8 @@
     <Content Include="Views\Champions\All.cshtml" />
     <Content Include="Views\Champions\Details.cshtml" />
     <Content Include="Views\Shared\_CommentsSection.cshtml" />
+    <Content Include="Views\Guides\Add.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

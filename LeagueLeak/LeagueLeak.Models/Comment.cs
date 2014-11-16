@@ -22,6 +22,8 @@ namespace LeagueLeak.Models
 
         public int? GuideId { get; set; }
 
+        public int? ChampionId { get; set; }
+
         public DateTime DateCreated { get; set; }
     }
 }

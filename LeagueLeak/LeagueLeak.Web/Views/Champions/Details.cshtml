@@ -25,7 +25,5 @@
         @*<p><img src="@Model.ImagePath"/></p>*@
         <p><img src="@Url.Content(Model.ImagePath)" alt="image" /></p>
     </div>
-    <div class="content">
-        Comments here!!!!
-    </div>
+    @Html.Partial("_CommentsSection")
 </div>

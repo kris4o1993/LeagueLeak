@@ -104,16 +104,22 @@ namespace LeagueLeak.Data.Migrations
 
         private void SeedRolesAndUsers(ApplicationDbContext context)
         {
+            const string PASSWORD = "123456";
+
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             roleManager.Create(new IdentityRole("Administrator"));
+            roleManager.Create(new IdentityRole("Premium"));
 
             var userAdmin = new User { UserName = "admin@admin.com" };
             var userMember = new User { UserName = "kris@kris.com" };
+            var userPremium = new User { UserName = "premium@premium.com" };
 
-            this.userManager.Create(userAdmin, "admin321");
-            this.userManager.Create(userMember, "123456");
+            this.userManager.Create(userAdmin, PASSWORD);
+            this.userManager.Create(userMember, PASSWORD);
+            this.userManager.Create(userPremium, PASSWORD);
 
             this.userManager.AddToRole(userAdmin.Id, "Administrator");
+            this.userManager.AddToRole(userPremium.Id, "Premium");
         }
 
         private List<Spell> SpellsToSeed()
