@@ -9,6 +9,8 @@ using AutoMapper.QueryableExtensions;
 using LeagueLeak.Web.Models;
 using AutoMapper;
 using LeagueLeak.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace LeagueLeak.Web.Controllers
 {
@@ -20,13 +22,22 @@ namespace LeagueLeak.Web.Controllers
 
         }
 
+        //[HttpGet]
+        //public ActionResult All()
+        //{
+        //    var allGuidesViewModel = this.Data.Guides.All()
+        //        .Project().To<AllGuidesViewModel>().ToList();
+        //
+        //    return View(allGuidesViewModel);
+        //}
+
         [HttpGet]
         public ActionResult All()
         {
-            var allGuidesViewModel = this.Data.Guides.All()
-                .Project().To<AllGuidesViewModel>().ToList();
+            var allGuides = this.Data.Guides.All()
+                    .Project().To<AllGuidesViewModel>().ToList();
 
-            return View(allGuidesViewModel);
+            return View(allGuides);
         }
 
         [HttpGet]

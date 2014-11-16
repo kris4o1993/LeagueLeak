@@ -20,6 +20,8 @@ namespace LeagueLeak.Web.Models.Guides
 
         public string ChampionName { get; set; }
 
+        public Champion Champion { get; set; }
+
         public string SpellName { get; set; }
 
         public ICollection<CommentsViewModel> Comments { get; set; }

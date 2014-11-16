@@ -27,6 +27,9 @@ namespace LeagueLeak.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
@@ -45,7 +48,7 @@ namespace LeagueLeak.Web
                       "~/Content/kendo/kendo.common.min.css",
                       "~/Content/kendo/kendo.bootstrap.min.css",
                       "~/Content/kendo/kendo.common-bootstrap.min.css",
-                      "~/Content/kendo/kendo.uniform.min.css"));
+                      "~/Content/kendo/kendo.moonlight.min.css"));
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿@model LeagueLeak.Web.Models.Players.PlayerDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details for @Model.Name</h2>
+
+<div class="row container">
+    <div class="col-md-6">
+
+        <table class="table table-striped table-hover ">
+            <tbody>
+                <tr>
+                    <td>Wins</td>
+                    <td>@Model.Wins</td>
+                </tr>
+                <tr>
+                    <td>Loses</td>
+                    <td>@Model.Loses</td>
+                </tr>
+                <tr>
+                    <td>Kills</td>
+                    <td>@Model.Kills</td>
+                </tr>
+                <tr>
+                    <td>Deaths</td>
+                    <td>@Model.Deaths</td>
+                </tr>
+                <tr>
+                    <td>Assists</td>
+                    <td>@Model.Assists</td>
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td>@Model.Rating</td>
+                </tr>
+                <tr>
+                    <td>Skill Score</td>
+                    <td>@String.Format("{0:F2}", Model.SkillScore)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

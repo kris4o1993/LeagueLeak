@@ -18,6 +18,8 @@ namespace LeagueLeak.Web.Models.Guides
 
         public string ChampionName { get; set; }
 
+        public Champion Champion { get; set; }
+
         public string SpellName { get; set; }
 
         public void CreateMappings(IConfiguration configuration)

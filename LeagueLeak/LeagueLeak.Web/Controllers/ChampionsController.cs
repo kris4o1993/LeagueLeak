@@ -27,6 +27,7 @@ namespace LeagueLeak.Web.Controllers
                 .Project().To<ChampionViewModel>().ToList();
 
             return View(allChampionsModel);
+
         }
 
         [HttpGet]

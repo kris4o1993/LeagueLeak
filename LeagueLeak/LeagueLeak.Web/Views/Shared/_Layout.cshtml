@@ -11,7 +11,7 @@
     @RenderSection("styles", required: false)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,17 +23,32 @@
             </div>
             <div class="navbar-collapse collapse" id="menu">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("All Champions", "All", "Champions")</li>
-                    <li>@Html.ActionLink("All Guides", "All", "Guides")</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("Create New Guide", "Add", "Guides")</li>
-                    }
+                    <li>@Html.ActionLink("ALL CHAMPIONS", "All", "Champions")</li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">GUIDES<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("ALL GUIDES", "All", "Guides")</li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>@Html.ActionLink("CREATE A GUIDE", "Add", "Guides")</li>
+                            }
+                        </ul>
+                    </li>
                 </ul>
+                @using (Html.BeginForm("Details", "Players", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="text" class="form-control col-lg-8" placeholder="Search for a player..." name="name">
+                }
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+    <div class="container">
+
+    </div>
+    <br />
     <div class="container body-content">
         @RenderBody()
         <hr />
