@@ -1,14 +1,45 @@
-﻿@model IEnumerable<LeagueLeak.Web.Models.Champions.ChampionViewModel>
+﻿@using LeagueLeak.Web.Models.Champions
+@model IEnumerable<ChampionViewModel>
 
 @{
+    const string ControllerName = "Champions";
     ViewBag.Title = "All Champions";
 }
 
-<div class="row">
-    @foreach (var champion in @Model)
+@*<div class="row">
+        @foreach (var champion in @Model)
+        {
+            <div class="col-md-3">
+                <a href="/Champions/Details/@champion.Id" class="btn btn-default">@champion.ChampionName</a>
+            </div>
+        }
+    </div>*@
+
+
+@(Html.Kendo()
+    .ListView<ChampionViewModel>()
+    .TagName("div")
+    .Name("AllChampionsGrid")
+    .ClientAltTemplateId("AllChampionsTemplate")
+    .Pageable()
+    .DataSource(dataSource =>
     {
-        <div class="col-md-3">
-            <a href="/Champions/Details/@champion.Id" class="btn btn-default">@champion.ChampionName</a>
+        dataSource
+            .ServerOperation(true)
+            .PageSize(10)
+            .Read(read => read.Action("All", ControllerName));
+
+    })
+)
+
+
+<script id="AllChampionsTemplate" type="text/x-kendo-tmpl">
+    <div class="row">
+        <div class="col-md-6">
+            #= Id #
         </div>
-    }
-</div>
+        <div class="col-md-6">
+            #= ChampionName #
+        </div>
+    </div>
+</script>

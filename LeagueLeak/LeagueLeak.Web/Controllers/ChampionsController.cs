@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
 using LeagueLeak.Web.Models.Champions;
 using LeagueLeak.Web.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace LeagueLeak.Web.Controllers
 {
@@ -18,13 +20,22 @@ namespace LeagueLeak.Web.Controllers
             
         }
 
-        [HttpGet]
-        public ActionResult All()
-        {
-            var allChampionsModel = this.Data.Champions.All()
-                .Project().To<ChampionViewModel>().ToList();
+        //[HttpGet]
+        //public ActionResult All()
+        //{
+        //    var allChampionsModel = this.Data.Champions.All()
+        //        .Project().To<ChampionViewModel>().ToList();
+        //
+        //    return View(allChampionsModel);
+        //}
 
-            return View(allChampionsModel);
+        [HttpGet]
+        public ActionResult All([DataSourceRequest]DataSourceRequest request)
+        {
+            var allChampions = this.Data.Champions.All()
+                .Project().To<ChampionViewModel>().ToDataSourceResult(request); ;
+
+            return Json(allChampions, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
