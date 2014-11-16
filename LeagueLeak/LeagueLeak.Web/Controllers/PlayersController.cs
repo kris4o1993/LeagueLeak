@@ -19,9 +19,9 @@ namespace LeagueLeak.Web.Controllers
         //[HttpGet]
         //public ActionResult Details(int id)
         //{
-        //    var champ = this.Data.Players.All().Where(a => a.Id == id).Project().To<>().FirstOrDefault();
+        //    var player = this.Data.Players.All().Where(a => a.Id == id).Project().To<>().FirstOrDefault();
         //
-        //    return View(champ);
+        //    return View(player);
         //}
     }
 }

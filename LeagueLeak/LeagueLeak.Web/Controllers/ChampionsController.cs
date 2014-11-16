@@ -20,22 +20,13 @@ namespace LeagueLeak.Web.Controllers
             
         }
 
-        //[HttpGet]
-        //public ActionResult All()
-        //{
-        //    var allChampionsModel = this.Data.Champions.All()
-        //        .Project().To<ChampionViewModel>().ToList();
-        //
-        //    return View(allChampionsModel);
-        //}
-
         [HttpGet]
-        public ActionResult All([DataSourceRequest]DataSourceRequest request)
+        public ActionResult All()
         {
-            var allChampions = this.Data.Champions.All()
-                .Project().To<ChampionViewModel>().ToDataSourceResult(request); ;
+            var allChampionsModel = this.Data.Champions.All()
+                .Project().To<ChampionViewModel>().ToList();
 
-            return Json(allChampions, JsonRequestBehavior.AllowGet);
+            return View(allChampionsModel);
         }
 
         [HttpGet]

@@ -1,0 +1,42 @@
+﻿@using LeagueLeak.Web.Models.Champions
+@model IEnumerable<ChampionViewModel>
+
+@{
+    const string ControllerName = "Champions";
+    ViewBag.Title = "All Champions";
+}
+
+@*<div class="row">
+        @foreach (var champion in @Model)
+        {
+            <div class="col-md-3">
+                <a href="/Champions/Details/@champion.Id" class="btn btn-default">@champion.ChampionName</a>
+            </div>
+        }
+    </div>*@
+
+
+@(Html.Kendo()
+    .Grid<ChampionViewModel>()
+    .Name("Grid")
+    .Columns(cols =>
+    {
+        cols.Bound(pr => pr.ChampionName);
+        cols.Bound(pr => pr.Role);
+        cols.Bound(pr => pr.ImagePath);
+        cols.Bound(pr => pr.Defense);
+        cols.Bound(pr => pr.Magic);
+        cols.Bound(pr => pr.Difficulty);
+        cols.Bound(pr => pr.Attack);
+    })
+    .Pageable()
+    .ColumnMenu()
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .DataSource(data =>
+        data
+        .Ajax()
+        .Model(m => m.Id(c => c.Id))
+        .Read(read => read.Action("Read", ControllerName)))
+)

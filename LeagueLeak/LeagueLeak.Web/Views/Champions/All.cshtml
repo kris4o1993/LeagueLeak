@@ -6,40 +6,14 @@
     ViewBag.Title = "All Champions";
 }
 
-@*<div class="row">
-        @foreach (var champion in @Model)
-        {
-            <div class="col-md-3">
-                <a href="/Champions/Details/@champion.Id" class="btn btn-default">@champion.ChampionName</a>
-            </div>
-        }
-    </div>*@
-
-
-@(Html.Kendo()
-    .ListView<ChampionViewModel>()
-    .TagName("div")
-    .Name("AllChampionsGrid")
-    .ClientAltTemplateId("AllChampionsTemplate")
-    .Pageable()
-    .DataSource(dataSource =>
+<div class="row">
+    @foreach (var champion in @Model)
     {
-        dataSource
-            .ServerOperation(true)
-            .PageSize(10)
-            .Read(read => read.Action("All", ControllerName));
-
-    })
-)
-
-
-<script id="AllChampionsTemplate" type="text/x-kendo-tmpl">
-    <div class="row">
-        <div class="col-md-6">
-            #= Id #
+        
+        <div class="col-md-2" style="width: 120px; height: 120px;">
+            <a href="/Champions/Details/@champion.Id" class="btn btn-default" style="background-image: url('@Url.Content(champion.ImagePath)'); width: 120px; height: 120px;">
+                @champion.ChampionName
+            </a>
         </div>
-        <div class="col-md-6">
-            #= ChampionName #
-        </div>
-    </div>
-</script>
+    }
+</div>
