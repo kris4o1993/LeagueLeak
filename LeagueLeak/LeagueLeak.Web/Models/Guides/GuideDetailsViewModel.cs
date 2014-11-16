@@ -29,6 +29,7 @@ namespace LeagueLeak.Web.Models.Guides
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Guide, GuideDetailsViewModel>()
+                .ForMember(m => m.Id, opt => opt.MapFrom(g => g.Id))
                 .ForMember(m => m.GuideTitle, opt => opt.MapFrom(g => g.Title))
                 .ForMember(m => m.GuideContent, opt => opt.MapFrom(g => g.Content))
                 .ForMember(m => m.AuthorName, opt => opt.MapFrom(g => g.Author.UserName))

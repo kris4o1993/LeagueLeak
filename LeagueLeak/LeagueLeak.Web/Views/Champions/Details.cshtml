@@ -1,4 +1,5 @@
-﻿@model LeagueLeak.Web.Models.Champions.ChampionViewModel
+﻿@using LeagueLeak.Web.Models
+@model LeagueLeak.Web.Models.Champions.ChampionViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -22,8 +23,26 @@
         <p>Difficulty: @Model.Difficulty</p>
     </div>
     <div class="row">
-        @*<p><img src="@Model.ImagePath"/></p>*@
         <p><img src="@Url.Content(Model.ImagePath)" alt="image" /></p>
     </div>
-    @Html.Partial("_CommentsSection")
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            @Html.Partial("_PostComment", new CommentsViewModel()
+       {
+           ChampionId = @Model.Id
+       })
+        </div>
+        <br />
+        <div id="comments">
+            @foreach (var comment in @Model.Comments)
+            {
+                @Html.Partial("_CommentsSection", comment)
+            }
+        </div>
+    }
 </div>
+
+@section scripts {
+    @Scripts.Render("/Scripts/jquery.unobtrusive-ajax.js")
+}

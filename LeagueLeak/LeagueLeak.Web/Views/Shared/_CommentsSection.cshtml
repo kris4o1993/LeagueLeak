@@ -1,15 +1,13 @@
-﻿<div class="row">
+﻿@model LeagueLeak.Web.Models.CommentsViewModel
+
+<div class="row" id="comments">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Comments</h3>
+            <h4 class="panel-title">Comment by @Model.AuthorName on @Model.DateCreated</h4>
         </div>
         <div class="panel-body">
-            @foreach (var comment in @Model.Comments)
-            {
-                <p>@comment.Content</p>
-                <em>on @comment.DateCreated, by @comment.AuthorName</em>
-                <hr/>
-            }
+            <p>@Model.Content</p>
+            <hr />
         </div>
     </div>
 </div>

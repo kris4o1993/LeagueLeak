@@ -3,22 +3,24 @@
     ViewBag.Title = "Add Guide";
 }
 
-@using (Html.BeginForm("Add", "Guides", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+<div class="jumbotron" style="width: 50%">
+    @using (Html.BeginForm("Add", "Guides", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
 
-    <fieldset>
-        <legend>Add New Guide</legend>
-        @Html.EditorFor(m => m.ChampionId, new { ListItem = Model.ChampionNames })
-        @Html.EditorFor(m => m.SpellId, new { ListItem = Model.SpellNames })
-        @Html.EditorFor(m => m.Title)
-        @Html.EditorFor(m => m.Content)
+        <fieldset>
+            <legend>Add New Guide</legend>
+            @Html.EditorFor(m => m.ChampionId, new { ListItem = Model.ChampionNames })
+            @Html.EditorFor(m => m.SpellId, new { ListItem = Model.SpellNames })
+            @Html.EditorFor(m => m.Title)
+            @Html.EditorFor(m => m.Content)
 
-        <div class="col-md-offset-2">
-            <input type="submit" class="btn btn-default" />
-        </div>
-    </fieldset>
-}
+            <div class="col-md-offset-2">
+                <input type="submit" class="btn btn-default" />
+            </div>
+        </fieldset>
+    }
+</div>
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

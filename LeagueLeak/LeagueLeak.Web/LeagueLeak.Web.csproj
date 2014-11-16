@@ -184,6 +184,7 @@
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChampionsController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\GuidesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Models\Guides\GuideDetailsViewModel.cs" />
     <Compile Include="Models\Guides\AllGuidesViewModel.cs" />
     <Compile Include="Models\Home\IndexArticlesViewModel.cs" />
+    <Compile Include="Models\Players\LeaderboardsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Players\PlayerDetailsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -455,6 +457,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -517,12 +521,14 @@
     <Content Include="Views\Shared\EditorTemplates\DropDownList.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SingleLineText.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MultiLineText.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\ListOfAllChampionsWithImages.cshtml" />
     <Content Include="Views\Players\Details.cshtml" />
+    <Content Include="Views\Players\Leaderboards.cshtml" />
+    <Content Include="Views\Shared\_PostComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Comments\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

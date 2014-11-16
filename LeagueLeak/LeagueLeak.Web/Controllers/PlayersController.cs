@@ -22,11 +22,20 @@ namespace LeagueLeak.Web.Controllers
         public ActionResult Details(string name)
         {
             var player = this.Data.Players.All().Where(a => a.Name == name).Project().To<PlayerDetailsViewModel>().FirstOrDefault();
-            
-            var skillScore = ((double)player.Kills + (double)player.Assists/3) / ((double)player.Deaths);
-            player.SkillScore = skillScore;
 
-            return View(player);
+            if (player != null && ModelState.IsValid)
+            {
+                var skillScore = ((double)player.Kills + (double)player.Assists / 3) / ((double)player.Deaths);
+                player.SkillScore = skillScore;
+                return View(player);
+            }
+            return View("Home/Error");
+        }
+
+        public ActionResult Leaderboards()
+        {
+            var players = this.Data.Players.All().OrderByDescending(p => p.Rating).Take(10).Project().To<LeaderboardsViewModel>().ToList();
+            return View(players);
         }
     }
 }

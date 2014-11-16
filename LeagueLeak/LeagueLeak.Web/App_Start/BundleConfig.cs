@@ -48,7 +48,7 @@ namespace LeagueLeak.Web
                       "~/Content/kendo/kendo.common.min.css",
                       "~/Content/kendo/kendo.bootstrap.min.css",
                       "~/Content/kendo/kendo.common-bootstrap.min.css",
-                      "~/Content/kendo/kendo.moonlight.min.css"));
+                      "~/Content/kendo/kendo.bootstrap.min.css"));
         }
     }
 }

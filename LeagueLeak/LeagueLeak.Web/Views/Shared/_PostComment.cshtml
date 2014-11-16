@@ -1,0 +1,19 @@
+﻿@model LeagueLeak.Web.Models.CommentsViewModel
+
+@using (Ajax.BeginForm("PostComment", "Comments",
+                new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    InsertionMode = InsertionMode.InsertBefore,
+                    UpdateTargetId = "comments"
+                }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.ArticleId)
+    @Html.HiddenFor(m => m.GuideId)
+    @Html.HiddenFor(m => m.ChampionId)
+    @Html.EditorFor(m => m.Content)
+    
+    <input type="submit" class="btn btn-default col-md-offset-4" />
+}

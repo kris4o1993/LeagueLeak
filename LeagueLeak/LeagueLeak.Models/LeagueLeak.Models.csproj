@@ -55,6 +55,7 @@
     <Compile Include="Article.cs" />
     <Compile Include="Champion.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="Feedback.cs" />
     <Compile Include="Guide.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

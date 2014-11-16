@@ -2,6 +2,7 @@
 using LeagueLeak.Web.Infrastructure.Mapping;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -11,9 +12,16 @@ namespace LeagueLeak.Web.Models
     {
         public int Id { get; set; }
 
+        [UIHint("MultiLineText")]
         public string Content { get; set; }
 
         public string AuthorName { get; set; }
+
+        public int? ArticleId { get; set; }
+
+        public int? GuideId { get; set; }
+
+        public int? ChampionId { get; set; }
 
         public DateTime DateCreated { get; set; }
 

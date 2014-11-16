@@ -33,6 +33,7 @@ namespace LeagueLeak.Web.Models.Guides
 
         public IEnumerable<SelectListItem> ChampionNames { get; set; }
 
+        [Display(Name = "Spell")]
         [UIHint("DropDownList")]
         public int SpellId { get; set; }
 

@@ -10,6 +10,7 @@ namespace LeagueLeak.Web.Models.Articles
 {
     public class ArticleDetailsViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
+        public int Id { get; set; }
         public string ArticleTitle { get; set; }
 
         public string Content { get; set; }

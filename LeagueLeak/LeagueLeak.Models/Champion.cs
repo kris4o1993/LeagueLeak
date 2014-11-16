@@ -9,6 +9,13 @@
 
     public class Champion
     {
+        private ICollection<Comment> comments;
+
+        public Champion()
+        {
+            this.comments = new HashSet<Comment>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -38,5 +45,11 @@
         public int Attack { get; set; }
 
         public string ImagePath { get; set; }
+
+        public virtual ICollection<Comment> Comments
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
+        }
     }
 }
