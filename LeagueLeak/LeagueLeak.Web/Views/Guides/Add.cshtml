@@ -3,45 +3,22 @@
     ViewBag.Title = "Add Guide";
 }
 
-@using (Html.BeginForm("Add", "Guides", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Html.BeginForm("Add", "Guides", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <fieldset>
         <legend>Add New Guide</legend>
-        <div class="row">
-            <div class="form-group">
-                <div class="col=md-3">
-                    Select Champion
-                </div>
-                <div class="col-md-6">
-                   
+        @Html.EditorFor(m => m.ChampionId, new { ListItem = Model.ChampionNames })
+        @Html.EditorFor(m => m.SpellId, new { ListItem = Model.SpellNames })
+        @Html.EditorFor(m => m.Title)
+        @Html.EditorFor(m => m.Content)
 
-                    @*<select>
-                        @foreach (var item in @Model.ChampionNames)
-                        {
-                            <option value="@item">@item</option>
-                        }
-                    </select>*@
-                </div>
-            </div>
+        <div class="col-md-offset-2">
+            <input type="submit" class="btn btn-default" />
         </div>
-        <div class="row">
-            <div class="form-group">
-                <div class="col=md-3">
-                    Select Spell
-                </div>
-                <div class="col-md-6">
-                    <select>
-                        @foreach (var item in @Model.SpellNames)
-                        {
-                            <option value="@item">@item</option>
-                        }
-                    </select>
-                </div>
-            </div>
-        </div>
-        
     </fieldset>
 }
-   
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

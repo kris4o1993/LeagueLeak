@@ -9,31 +9,30 @@ using System.Web.Mvc;
 
 namespace LeagueLeak.Web.Models.Guides
 {
-    public class AddGuideViewModel : IMapFrom<Guide>, IHaveCustomMappings
+    public class AddGuideViewModel : IMapFrom<Guide>
     {
         [Required]
         [MinLength(3)]
         [MaxLength(30)]
-        public string GuideTitle { get; set; }
+        [UIHint("SingleLineText")]
+        [Display(Name = "Title")]
+        public string Title { get; set; }
 
         [Required]
         [MinLength(10)]
-        public string GuideContent { get; set; }
+        [UIHint("MultiLineText")]
+        [Display(Name = "Content")]
+        public string Content { get; set; }
 
+        [Display(Name = "Champion")]
+        [UIHint("DropDownList")]
         public int ChampionId { get; set; }
 
-        public ICollection<string> ChampionNames { get; set; }
+        public IEnumerable<SelectListItem> ChampionNames { get; set; }
 
+        [UIHint("DropDownList")]
         public int SpellId { get; set; }
 
-        public ICollection<string> SpellNames { get; set; }
-
-        public void CreateMappings(AutoMapper.IConfiguration configuration)
-        {
-            configuration.CreateMap<Guide, AddGuideViewModel>()
-                .ForMember(m => m.GuideTitle, opt => opt.MapFrom(g => g.Title))
-                .ForMember(m => m.GuideContent, opt => opt.MapFrom(g => g.Content))
-                .ReverseMap();
-        }
+        public IEnumerable<SelectListItem> SpellNames { get; set; }
     }
 }

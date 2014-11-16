@@ -27,7 +27,7 @@
                     <li>@Html.ActionLink("All Guides", "All", "Guides")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Create New Guide", "Create", "Guides")</li>
+                        <li>@Html.ActionLink("Create New Guide", "Add", "Guides")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

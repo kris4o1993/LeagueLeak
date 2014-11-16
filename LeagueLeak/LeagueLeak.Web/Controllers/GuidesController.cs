@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
 using LeagueLeak.Web.Models;
+using AutoMapper;
+using LeagueLeak.Models;
 
 namespace LeagueLeak.Web.Controllers
 {
@@ -37,32 +39,67 @@ namespace LeagueLeak.Web.Controllers
             return View(guide);
         }
 
+        [HttpGet]
         [Authorize(Roles = "Administrator, Premium")]
         public ActionResult Add()
         {
-            var champions = this.Data.Champions.All();
-            var championNames = new List<string>();
+            var championNames = ChampionPopulator();
+            var spellNames = SpellPopulator();
 
-            foreach (var champion in champions)
-            {
-                championNames.Add(champion.Name);
-            }
-
-            var spells = this.Data.Spells.All();
-            var spellNames = new List<string>();
-
-            foreach (var spell in spells)
-            {
-                spellNames.Add(spell.Name);
-            }
-
-            var addGuideViewModel = new AddGuideViewModel()
+            var model = new AddGuideViewModel()
             {
                 ChampionNames = championNames,
                 SpellNames = spellNames
             };
 
-            return View(addGuideViewModel);
+            return View(model);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Premium")]
+        public ActionResult Add(AddGuideViewModel guide)
+        {
+            if (guide != null && ModelState.IsValid)
+            {
+                var dbGuide = Mapper.Map<Guide>(guide);
+                dbGuide.AuthorId = this.UserProfile.Id;
+                this.Data.Guides.Add(dbGuide);
+                this.Data.SaveChanges();
+
+                return RedirectToAction("All", "Guides");
+            }
+
+            var championNames = ChampionPopulator();
+            var spellNames = SpellPopulator();
+
+            guide.ChampionNames = championNames;
+            guide.SpellNames = spellNames;
+
+            return View(guide);
+        }
+
+        private IEnumerable<SelectListItem> ChampionPopulator()
+        {
+            var championNames = this.Data.Champions.All().Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name
+            });
+
+            return championNames;
+        }
+
+        private IEnumerable<SelectListItem> SpellPopulator()
+        {
+            var spellNames = this.Data.Spells.All().Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name
+            });
+
+            return spellNames;
+        }
+        
     }
 }
