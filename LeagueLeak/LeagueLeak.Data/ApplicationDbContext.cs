@@ -1,15 +1,15 @@
-﻿using LeagueLeak.Data.Migrations;
-using LeagueLeak.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeagueLeak.Data
+﻿namespace LeagueLeak.Data
 {
+    using LeagueLeak.Data.Migrations;
+    using LeagueLeak.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()

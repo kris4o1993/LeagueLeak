@@ -1,14 +1,17 @@
-﻿using LeagueLeak.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeagueLeak.Data
+﻿namespace LeagueLeak.Data
 {
+    using LeagueLeak.Models;
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public interface IApplicationData
     {
+        DbContext Context { get; }
+
         IRepository<User> Users { get; }
 
         IRepository<Player> Players { get; }

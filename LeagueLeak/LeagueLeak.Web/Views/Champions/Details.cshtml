@@ -23,8 +23,17 @@
         <p>Difficulty: @Model.Difficulty</p>
     </div>
     <div class="row">
-        <p><img src="@Url.Content(Model.ImagePath)" alt="image" /></p>
+         @if (Model.ImagePath == null) 
+         { 
+             <p><img src="@Url.Content("~/Content/champions/EmptyIcon.png")" alt="image" /></p>
+         }
+         else
+         {
+            <p><img src="@Url.Content(Model.ImagePath)" alt="image" /></p>
+         }
+
     </div>
+
     @if (User.Identity.IsAuthenticated)
     {
         <div class="row">

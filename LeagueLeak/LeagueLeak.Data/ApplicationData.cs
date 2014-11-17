@@ -1,13 +1,13 @@
-﻿using LeagueLeak.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeagueLeak.Data
+﻿namespace LeagueLeak.Data
 {
+    using LeagueLeak.Models;
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class ApplicationData : IApplicationData
     {
         private DbContext context;
@@ -75,6 +75,19 @@ namespace LeagueLeak.Data
             }
         }
 
+        public DbContext Context
+        {
+            get
+            {
+                return this.context;
+            }
+        }
+
+        public int SaveChanges()
+        {
+            return this.context.SaveChanges();
+        }
+
         private IRepository<T> GetRepository<T>() where T : class
         {
             var typeOfRepository = typeof(T);
@@ -87,9 +100,5 @@ namespace LeagueLeak.Data
             return (IRepository<T>)this.repositories[typeOfRepository];
         }
 
-        public int SaveChanges()
-        {
-            return this.context.SaveChanges();
-        }
     }
 }
