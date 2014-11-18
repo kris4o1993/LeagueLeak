@@ -23,7 +23,6 @@ namespace LeagueLeak.Web.Models.Home
             configuration.CreateMap<Article, IndexArticlesViewModel>()
                 .ForMember(m => m.ArticleTitle, opt => opt.MapFrom(a => a.Title))
                 .ForMember(m => m.NumberOfComments, opt => opt.MapFrom(a => a.Comments.Count()))
-                .ForMember(m => m.DateCreated, opt => opt.MapFrom(a => a.DateCreated))
                 .ReverseMap();
         }
     }

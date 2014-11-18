@@ -15,8 +15,6 @@ namespace LeagueLeak.Web.Models.Articles
 
         public string Content { get; set; }
 
-        public DateTime DateCreated { get; set; }
-
         public ICollection<CommentsViewModel> Comments { get; set; }
 
         public void CreateMappings(AutoMapper.IConfiguration configuration)
@@ -24,7 +22,6 @@ namespace LeagueLeak.Web.Models.Articles
             configuration.CreateMap<Article, ArticleDetailsViewModel>()
                 .ForMember(m => m.ArticleTitle, opt => opt.MapFrom(a => a.Title))
                 .ForMember(m => m.Content, opt => opt.MapFrom(a => a.Content))
-                .ForMember(m => m.DateCreated, opt => opt.MapFrom(a => a.DateCreated))
                 .ReverseMap();
         }
     }

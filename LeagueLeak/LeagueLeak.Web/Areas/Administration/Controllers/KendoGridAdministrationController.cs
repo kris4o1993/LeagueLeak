@@ -8,6 +8,7 @@
     using LeagueLeak.Data;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
+    using System.Linq;
 
     public abstract class KendoGridAdministrationController : AdminController
     {
@@ -26,6 +27,9 @@
         [NonAction]
         protected virtual T Create<T>(object model) where T : class
         {
+            //for debug purposes
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+
             if (model != null && ModelState.IsValid)
             {
                 var databaseModel = Mapper.Map<T>(model);

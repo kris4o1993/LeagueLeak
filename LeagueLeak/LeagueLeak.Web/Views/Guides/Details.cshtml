@@ -6,11 +6,12 @@
 }
 
 <div class="jumbotron">
-    <h1>@Model.GuideTitle</h1>
+    <h1><img src="@Url.Content(Model.Champion.ImagePath)" alt="image" /> @Model.GuideTitle</h1>
     <div class="row">
-        <em>@Model.AuthorName</em>
+        <h3>@Model.AuthorName</h3>
     </div>
     <div class="row">
+        <p>Recommended spell for the guide: @Model.SpellName</p>
         <p>@Model.GuideContent</p>
     </div>
     @if (User.Identity.IsAuthenticated)

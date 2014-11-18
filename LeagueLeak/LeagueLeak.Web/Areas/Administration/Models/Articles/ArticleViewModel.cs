@@ -19,8 +19,5 @@ namespace LeagueLeak.Web.Areas.Administration.Models.Articles
 
         [MinLength(100)]
         public string Content { get; set; }
-
-        [HiddenInput(DisplayValue = false)]
-        public DateTime DateCreated { get; set; }
     }
 }

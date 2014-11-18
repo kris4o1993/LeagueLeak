@@ -24,8 +24,6 @@
         [MinLength(100)]
         public string Content { get; set; }
 
-        public DateTime DateCreated { get; set; }
-
         public virtual ICollection<Comment> Comments
         {
             get { return this.comments; }
