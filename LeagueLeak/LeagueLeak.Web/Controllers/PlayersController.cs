@@ -14,7 +14,6 @@ namespace LeagueLeak.Web.Controllers
         public PlayersController(IApplicationData data)
             :base(data)
         {
-            
         }
 
         [HttpPost]
@@ -29,6 +28,7 @@ namespace LeagueLeak.Web.Controllers
                 player.SkillScore = skillScore;
                 return View(player);
             }
+
             return View("Home/Error");
         }
 
@@ -40,6 +40,7 @@ namespace LeagueLeak.Web.Controllers
             {
                 player.SkillScore = Math.Round((((double)player.Kills + (double)player.Assists / 3) / ((double)player.Deaths)) * 1000, 0);
             }
+
             return View(players);
         }
     }

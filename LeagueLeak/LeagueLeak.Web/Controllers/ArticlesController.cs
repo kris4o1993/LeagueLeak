@@ -15,7 +15,6 @@
         public ArticlesController(IApplicationData data)
             : base(data)
         {
-
         }
 
         // GET: Articles

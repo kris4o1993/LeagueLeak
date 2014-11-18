@@ -17,7 +17,6 @@ namespace LeagueLeak.Web.Controllers
         public ChampionsController(IApplicationData data)
             :base(data)
         {
-            
         }
 
         [HttpGet]
@@ -27,7 +26,6 @@ namespace LeagueLeak.Web.Controllers
                 .Project().To<ChampionViewModel>().ToList();
 
             return View(allChampionsModel);
-
         }
 
         [HttpGet]

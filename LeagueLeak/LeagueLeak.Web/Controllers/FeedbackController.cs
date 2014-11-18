@@ -16,7 +16,6 @@ namespace LeagueLeak.Web.Controllers
         public FeedbackController(IApplicationData data)
             :base(data)
         {
-
         }
 
         [HttpGet]

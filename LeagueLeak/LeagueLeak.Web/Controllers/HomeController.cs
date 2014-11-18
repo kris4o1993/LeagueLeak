@@ -15,7 +15,6 @@ namespace LeagueLeak.Web.Controllers
         public HomeController(IApplicationData data)
             :base(data)
         {
-
         }
 
         public ActionResult Index()

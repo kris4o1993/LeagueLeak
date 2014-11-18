@@ -191,7 +191,9 @@
     <Compile Include="Areas\Administration\Models\Champions\ChampionViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Guides\GuideViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Spells\SpellViewModel.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountController.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChampionsController.cs" />
@@ -199,7 +201,9 @@
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\GuidesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManageController.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

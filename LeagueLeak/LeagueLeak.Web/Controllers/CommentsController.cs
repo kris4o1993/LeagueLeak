@@ -15,7 +15,6 @@ namespace LeagueLeak.Web.Controllers
         public CommentsController(IApplicationData data)
             :base(data)
         {
-
         }
 
         [HttpPost]

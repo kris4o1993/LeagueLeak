@@ -19,17 +19,7 @@ namespace LeagueLeak.Web.Controllers
         public GuidesController(IApplicationData data)
             : base(data)
         {
-
         }
-
-        //[HttpGet]
-        //public ActionResult All()
-        //{
-        //    var allGuidesViewModel = this.Data.Guides.All()
-        //        .Project().To<AllGuidesViewModel>().ToList();
-        //
-        //    return View(allGuidesViewModel);
-        //}
 
         [HttpGet]
         public ActionResult All()
@@ -113,6 +103,5 @@ namespace LeagueLeak.Web.Controllers
 
             return spellNames;
         }
-        
     }
 }
