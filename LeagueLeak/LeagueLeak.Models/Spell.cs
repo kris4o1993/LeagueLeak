@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-
-namespace LeagueLeak.Models
+﻿namespace LeagueLeak.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Text;
+
     public class Spell
     {
         [Key]
@@ -17,7 +17,5 @@ namespace LeagueLeak.Models
 
         [MinLength(10)]
         public string Description { get; set; }
-
-        public string ImagePath { get; set; }
     }
 }

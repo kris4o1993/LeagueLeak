@@ -1,12 +1,13 @@
 ﻿namespace LeagueLeak.Data
 {
-    using LeagueLeak.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
+    using LeagueLeak.Models;
 
     public interface IApplicationData
     {
@@ -25,6 +26,8 @@
         IRepository<Comment> Comments { get; }
 
         IRepository<Guide> Guides { get; }
+
+        IRepository<Feedback> Feedbacks { get; }
 
         int SaveChanges();
     }

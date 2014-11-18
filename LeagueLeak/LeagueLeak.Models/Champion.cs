@@ -27,7 +27,6 @@
         [Required]
         public string Role { get; set; }
 
-
         [Required]
         [Range(1, 10)]
         public int Defense { get; set; }

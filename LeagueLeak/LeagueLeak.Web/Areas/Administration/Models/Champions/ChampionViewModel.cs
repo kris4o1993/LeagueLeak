@@ -17,9 +17,11 @@
         [Required]
         [MinLength(3)]
         [MaxLength(30)]
+        [AllowHtml]
         public string Name { get; set; }
 
         [Required]
+        [AllowHtml]
         public string Role { get; set; }
 
 

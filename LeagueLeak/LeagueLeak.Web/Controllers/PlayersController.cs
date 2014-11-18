@@ -25,7 +25,7 @@ namespace LeagueLeak.Web.Controllers
 
             if (player != null && ModelState.IsValid)
             {
-                var skillScore = ((double)player.Kills + (double)player.Assists / 3) / ((double)player.Deaths);
+                var skillScore = Math.Round((((double)player.Kills + (double)player.Assists / 3) / ((double)player.Deaths)) * 1000, 0);
                 player.SkillScore = skillScore;
                 return View(player);
             }
@@ -36,6 +36,10 @@ namespace LeagueLeak.Web.Controllers
         public ActionResult Leaderboards()
         {
             var players = this.Data.Players.All().OrderByDescending(p => p.Rating).Take(10).Project().To<LeaderboardsViewModel>().ToList();
+            foreach (var player in players)
+            {
+                player.SkillScore = Math.Round((((double)player.Kills + (double)player.Assists / 3) / ((double)player.Deaths)) * 1000, 0);
+            }
             return View(players);
         }
     }

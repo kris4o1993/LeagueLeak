@@ -15,6 +15,14 @@ namespace LeagueLeak.Web.Models.Players
 
         public int PlayerRating { get; set; }
 
+        public int Kills { get; set; }
+
+        public int Deaths { get; set; }
+
+        public int Assists { get; set; }
+
+        public double SkillScore { get; set; }
+
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {
             configuration.CreateMap<Player, LeaderboardsViewModel>()

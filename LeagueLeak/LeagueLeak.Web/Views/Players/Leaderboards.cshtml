@@ -2,15 +2,46 @@
 
 @{
     ViewBag.Title = "Leaderboards";
+    var topRatings = new List<int>();
+    var topSkillScores = new List<double>();
+    var allTopPlayers = new List<string>();
+
+    foreach (var player in @Model)
+    {
+        topRatings.Add(player.PlayerRating);
+        allTopPlayers.Add(player.PlayerName);
+        topSkillScores.Add(player.SkillScore);
+    }
 }
 
-<h2>Leaderboards</h2>
-
 <div class="jumbotron">
-    @foreach (var item in @Model)
-    {
-        <div class="row">
-            <p>@item.PlayerName - @item.PlayerRating</p>
-        </div>
-    }
+    @(Html.Kendo().Chart()
+        .Name("chart")
+        .Title("Top Players by Rating and Skill Score")
+        .Legend(legend => legend
+            .Visible(false)
+        )
+        .ChartArea(chartArea => chartArea
+            .Background("transparent")
+        )
+        .Series(series =>
+        {
+            series.Bar(topRatings).Name("Rating");
+            series.Bar(topSkillScores).Name("Skill Score");
+        })
+        .CategoryAxis(axis => axis
+            .Categories(allTopPlayers)
+            .MajorGridLines(lines => lines.Visible(false))
+        )
+        .ValueAxis(axis => axis
+            .Numeric()
+            .Max(topRatings.Max())
+            .Line(line => line.Visible(false))
+            .MajorGridLines(lines => lines.Visible(true))
+        )
+        .Tooltip(tooltip => tooltip
+            .Visible(true)
+            .Template("#= series.name #: #= value #")
+        )
+    )
 </div>

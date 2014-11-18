@@ -182,14 +182,21 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Administration\Controllers\ChampionsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\GuidesController.cs" />
     <Compile Include="Areas\Administration\Controllers\KendoGridAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SpellsController.cs" />
+    <Compile Include="Areas\Administration\Models\Articles\ArticleViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Champions\ChampionViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\Guides\GuideViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\Spells\SpellViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChampionsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\GuidesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -204,6 +211,7 @@
     <Compile Include="Models\Articles\ArticleDetailsViewModel.cs" />
     <Compile Include="Models\Champions\ChampionViewModel.cs" />
     <Compile Include="Models\CommentsViewModel.cs" />
+    <Compile Include="Models\Feedbacks\FeedbackViewModel.cs" />
     <Compile Include="Models\Guides\AddGuideViewModel.cs" />
     <Compile Include="Models\Guides\GuideDetailsViewModel.cs" />
     <Compile Include="Models\Guides\AllGuidesViewModel.cs" />
@@ -465,6 +473,9 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Champions\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Guides\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Articles\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Spells\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -549,6 +560,8 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Views\Feedback\All.cshtml" />
+    <Content Include="Views\Feedback\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

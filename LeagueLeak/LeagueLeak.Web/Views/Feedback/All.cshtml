@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LeagueLeak.Web.Models.Feedbacks.FeedbackViewModel>
+@{
+    ViewBag.Title = "All";
+}
+
+<div class="container">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Created On</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var feedback in Model)
+                {
+                    <tr>
+
+                        @if (@feedback.Author != null)
+                        {
+                            <td>@feedback.Author.UserName</td>
+                        }
+                        else
+                        {
+                            <td>Annonimous</td>
+                        }
+                        <td>@feedback.Title</td>
+                        <td>@Html.Raw(feedback.Content)</td>
+                        <td>@feedback.CreationDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

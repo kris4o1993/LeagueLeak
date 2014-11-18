@@ -1,13 +1,14 @@
 namespace LeagueLeak.Data.Migrations
 {
-    using LeagueLeak.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+
+    using LeagueLeak.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
@@ -16,6 +17,7 @@ namespace LeagueLeak.Data.Migrations
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
+
             // TODO: Remove after project is completed
             this.AutomaticMigrationDataLossAllowed = true;
         }
@@ -25,7 +27,7 @@ namespace LeagueLeak.Data.Migrations
             this.userManager = new UserManager<User>(new UserStore<User>(context));
             if (!context.Users.Any())
             {
-                SeedRolesAndUsers(context);
+                this.SeedRolesAndUsers(context);
                 context.SaveChanges();
             }
 
@@ -59,8 +61,14 @@ namespace LeagueLeak.Data.Migrations
 
             if (!context.Guides.Any())
             {
-                var guides = GuidesToSeed(context);
+                var guides = this.GuidesToSeed(context);
                 context.Guides.AddOrUpdate(guides.ToArray());
+                context.SaveChanges();
+            }
+
+            if (!context.Feedbacks.Any())
+            {
+                this.SeedFeedback(context);
                 context.SaveChanges();
             }
         }
@@ -70,7 +78,6 @@ namespace LeagueLeak.Data.Migrations
             var users = context.Users.Take(2).ToList();
             var champion = context.Champions.Take(1).ToList();
             var spell = context.Spells.Take(1).ToList();
-
 
             var sampleComments = new List<Comment>()
             {
@@ -187,11 +194,6 @@ namespace LeagueLeak.Data.Migrations
                     Description = "Your champion can move through units and has 27% increased Movement Speed for 10 seconds."
                 },
             };
-
-            foreach (var spell in spells)
-            {
-                spell.ImagePath = "~/Content/spells/" + spell.Name + ".png";
-            }
 
             return spells;
         }
@@ -370,7 +372,6 @@ namespace LeagueLeak.Data.Migrations
             }
 
             return champs;
-
         }
 
         private List<Player> PlayersToSeed()
@@ -573,6 +574,71 @@ namespace LeagueLeak.Data.Migrations
                     DateCreated = DateTime.Now
                 }
             };
+        }
+
+        private void SeedFeedback(ApplicationDbContext context)
+        {
+            var users = context.Users.Take(2).ToList();
+
+            var feedbacks = new List<Feedback>()
+            {
+                new Feedback
+                {
+                    Id = 1,
+                    Author = users[0],
+                    AuthorId = users[0].Id,
+                    CreationDate = DateTime.Now.AddDays(-2),
+                    Title = "<strong>Html here is not allowed</strong>",
+                    Content = "<strong>But HERE</strong><em>it IS!!!</em> Cool huh?"
+                },
+                new Feedback
+                {
+                    Id = 2,
+                    Author = users[1],
+                    AuthorId = users[1].Id,
+                    CreationDate = DateTime.Now.AddDays(-1),
+                    Title = "Sample feedback 2",
+                    Content = "2. Lorem ipsum feedback much feedback such hodor, wow!"
+                },
+                new Feedback
+                {
+                    Id = 3,
+                    Author = users[0],
+                    AuthorId = users[0].Id,
+                    CreationDate = DateTime.Now.AddHours(-2),
+                    Title = "Sample feedback 3",
+                    Content = "3. Lorem ipsum feedback much feedback such hodor, wow!"
+                },
+                new Feedback
+                {
+                    Id = 4,
+                    Author = null,
+                    AuthorId = null,
+                    CreationDate = DateTime.Now.AddDays(-5),
+                    Title = "Sample feedback 4",
+                    Content = "4. Lorem ipsum feedback much feedback such hodor, wow!"
+                },
+                new Feedback
+                {
+                    Id = 5,
+                    Author = null,
+                    AuthorId = null,
+                    CreationDate = DateTime.Now.AddDays(-10),
+                    Title = "Sample feedback 5",
+                    Content = "5. Lorem ipsum feedback much feedback such hodor, wow!"
+                },
+                new Feedback
+                {
+                    Id = 6,
+                    Author = users[1],
+                    AuthorId = users[1].Id,
+                    CreationDate = DateTime.Now.AddHours(-1),
+                    Title = "Sample feedback 6",
+                    Content = "6. Lorem ipsum feedback much feedback such hodor, wow!"
+                }
+            };
+
+            context.Feedbacks.AddOrUpdate(feedbacks.ToArray());
         }
     }
 }

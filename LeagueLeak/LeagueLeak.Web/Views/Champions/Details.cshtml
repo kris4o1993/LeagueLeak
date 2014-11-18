@@ -6,51 +6,82 @@
 }
 
 <div class="jumbotron">
-    <h1>@Model.ChampionName</h1>
-    <div class="row">
-        <em>Role: @Model.Role</em>
+    <h1>
+        @if (Model.ImagePath == null)
+        {
+            <img src="@Url.Content("~/Content/champions/EmptyIcon.png")" alt="image" />
+        }
+        else
+        {
+            <img src="@Url.Content(Model.ImagePath)" alt="image" />
+        }
+        @Model.ChampionName - <em>@Model.Role</em>
+    </h1>
+    <div class="jumbotron">
+        @(Html.Kendo().Chart()
+             .Name("chart")
+            .Title("Champion potential")
+            .Legend(legend => legend
+                .Position(ChartLegendPosition.Top)
+            )
+            .Series(series =>
+            {
+                series.Pie(new dynamic[] {
+                    new {category = "Attack" ,value = @Model.Attack},
+                    new {category = "Defense" ,value = @Model.Defense},
+                    new {category = "Difficulty" ,value = @Model.Difficulty},
+                    new {category = "Magic" ,value = @Model.Magic}
+                })
+                .Labels(labels => labels
+                    .Visible(true)
+                    .Template("#= category # - #= kendo.format('{0:P}', percentage)#")
+                );
+            })
+            .Tooltip(tooltip => tooltip
+                .Visible(true)
+                        .Template("#= category # - #= kendo.format('{0:P}', percentage)#")
+            )
+        )
     </div>
-    <div class="row">
-        <p>Magic: @Model.Magic</p>
-    </div>
-    <div class="row">
-        <p>Attack: @Model.Attack</p>
-    </div>
-    <div class="row">
-        <p>Defense: @Model.Defense</p>
-    </div>
-    <div class="row">
-        <p>Difficulty: @Model.Difficulty</p>
-    </div>
-    <div class="row">
-         @if (Model.ImagePath == null) 
-         { 
-             <p><img src="@Url.Content("~/Content/champions/EmptyIcon.png")" alt="image" /></p>
-         }
-         else
-         {
-            <p><img src="@Url.Content(Model.ImagePath)" alt="image" /></p>
-         }
+    <script>
+        $(document).ready(function () {
+            $(".configuration").bind("change", refresh);
+        });
 
-    </div>
+        function refresh() {
+            var chart = $("#chart").data("kendoChart"),
+                pieSeries = chart.options.series[0],
+                labels = $("#labels").prop("checked"),
+                alignInputs = $("input[name='alignType']"),
+                alignLabels = alignInputs.filter(":checked").val();
 
-    @if (User.Identity.IsAuthenticated)
-    {
-        <div class="row">
-            @Html.Partial("_PostComment", new CommentsViewModel()
+            chart.options.transitions = false;
+            pieSeries.labels.visible = labels;
+            pieSeries.labels.align = alignLabels;
+
+            alignInputs.attr("disabled", !labels);
+
+            chart.refresh();
+        }
+    </script>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="row">
+        @Html.Partial("_PostComment", new CommentsViewModel()
        {
            ChampionId = @Model.Id
        })
-        </div>
-        <br />
-        <div id="comments">
-            @foreach (var comment in @Model.Comments)
-            {
-                @Html.Partial("_CommentsSection", comment)
-            }
-        </div>
-    }
-</div>
+    </div>
+    <br />
+    <div id="comments">
+        @foreach (var comment in @Model.Comments)
+        {
+            @Html.Partial("_CommentsSection", comment)
+        }
+    </div>
+}
 
 @section scripts {
     @Scripts.Render("/Scripts/jquery.unobtrusive-ajax.js")
